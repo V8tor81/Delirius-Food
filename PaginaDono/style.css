@@ -4,6 +4,27 @@
     box-sizing: border-box;
 }
 
-.header{
-    background-color: #402624;
+body{
+    background-color: rgb(99, 69, 31);
+}
+header{
+    width: 100%;
+}
+header img{
+    max-width: 140px;
+}
+header .interface{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .menu-desktop nav ul{
+    list-style: none;
+}
+header .menu-desktop nav ul li{
+    display: inline-block;
+    margin: 0 40px;
+}
+header .menu-desktop nav ul li a{
+    text-decoration: none;
 }
