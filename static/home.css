@@ -123,7 +123,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 80px;
     padding: 40px 20px;
 }
 
@@ -133,7 +133,7 @@ main{
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    width: 80%;
+    width: 90%;
 }
 
 #ofertas img {
@@ -163,14 +163,11 @@ main{
     flex-direction: column;
     gap: 20px;
     text-align: center;
+    padding-left: 30px;
 }
 
 #dia{
     font-size: 40px;
-}
-
-#preco{
-    padding-left: 30px;
 }
 
 .novidade{
@@ -185,37 +182,18 @@ main{
 }
 
 #new{
-    padding-left: 50px;
+    padding-left: 80px;
     font-size: 40px;
 }
 
 #menu{
-    margin-top: 50px;
+    margin-top: 100px;
     grid-column: 2/span 10;
     padding: 40px 20px;
 }
 
 #menu img{
-    width: 50%;
-}
-
-#f1{
-    padding-left: 50px;
-    width: 20%;
-}
-
-#f2{
-    padding-left: 50px;
-    width: 50%;
-}
-
-#f3{
-    padding-left: 50px;
-    width: 15%;
-}
-
-#f4, #f5{
-    padding-left: 50px;
+    width: 100%;
 }
 
 h2, h4{
@@ -233,12 +211,11 @@ h2{
 }
 
 #menu .cards{
-    margin-top: 50px;
+    margin-top: 100px;
     display: flex;
-    gap: 50px;
+    gap: 40px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 #menu .card:hover{
@@ -246,15 +223,13 @@ h2{
 }
 
 #menu .card{
-    background-color: #f5f5f5;
+    background-color: beige;
     border-radius: 20px;
-    padding: 20px;
-    max-width: 200px;
-    max-height: 150px;
+    padding: 40px;
 }
 
 #restaurante{
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 100px;
     grid-column: 2/span 10;
     padding: 40px 20px;
@@ -262,13 +237,13 @@ h2{
 
 #restaurante .cards{
     display: flex;
-    gap: 30px;
-    margin-top: 50px;
-    margin-left: 150px;
+    gap: 40px;
+    margin-top: 100px;
+    margin-left: 120px;
 }
 
 #restaurante .card{
-    background-color: #f5f5f5;
+    background-color: beige;
     padding: 15px;
     border-radius: 20px;
     text-align: center;
@@ -309,10 +284,6 @@ h2{
 
 #ft2{
     padding-bottom: 10px;
-}
-
-#ft4{
-    width: 20%;
 }
 
 footer{
@@ -357,10 +328,11 @@ footer #logo{
 
 #search2 {
     padding: 8px;
-    width: 178px;
+    width: 180px;
     border-radius: 5px;
     border: 1px solid #888;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
 }
 
 .bottom-footer{
@@ -377,4 +349,31 @@ footer #logo{
     justify-content: center;
     font-size: 14px;
     color: #f5f5f5;
+}
+
+/*VERSÃO MOBILE*/
+@media screen and (max-width: 320px) and (max-height: 780px) {
+    /*finalizar aqui*/
+    
+}
+
+/*VERSÃO LAPTOP*/
+@media screen and (max-width: 1440px) and (max-height: 1024px) {
+    .hero{
+        padding-top: 160px;
+        height: 50vh;
+    }
+
+    .hero img{
+        width: 50%;
+    }
+
+    .search-icon{
+        right: 11%;
+        top: 58.5%;
+    }
+
+    #restaurante .cards{
+        margin-left: 50px;
+    }
 }
