@@ -4,6 +4,8 @@ body {
     padding: 0;
     background-color: #f5f5f5;
     color: #333;
+    padding-top: 60px;
+
 }
 
 header {
@@ -128,12 +130,6 @@ h2 {
     margin: 0;
     font-size: 16px;
     color: #222;
-}
-
-.category {
-    color: #777;
-    font-size: 14px;
-    margin-top: 5px;
 }
 
 .price,
