@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/CM-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/cadastro.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+       
+        <div class="forms">
+            <form>
+                <div class="forms-header">
+                    <div class="title">
+                        <h1>Cadastre-se</h1>
+                    </div>
+                    <div class="login-button">
+                        <button><a href="login.html">Entrar</a></button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" placeholder="Nome Completo" required>
+                    </div>
+
+                 
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="phone">Celular</label>
+                        <input  type="tel" placeholder="(xx) xxxx-xxxx" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="address">Endereço</label>
+                        <input type="text" placeholder="Endereço" required>
+                    </div>  
+
+                    
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input type="password" maxlength="6" placeholder="Até 6 caracteres" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Confirepassword">Confirme sua senha</label>
+                        <input type="password" maxlength="6" placeholder="Digite novamente" required>
+                    </div>
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-title">
+                        <h6>Função</h6>
+                    </div>
+
+                    <div class="gender-group">
+                        <div class="gender-input">
+                            <input type="radio" id="female" name="gender">
+                            <label for="female">Cliente</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input type="radio" id="male" name="gender">
+                            <label for="male">Restaurante</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input type="radio" id="others" name="gender">
+                            <label for="others">Entregador</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="continue-button">
+                    <input type="submit" value="Salvar">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
