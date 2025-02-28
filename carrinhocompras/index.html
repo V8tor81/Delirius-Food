@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <title>Carrinho de Compras</title>
+</head>
+<body>
+  
+    <header>
+      <a href="home.html"><img id="logo" src="images\logo.png" alt="Delirius Food"></a>
+      
+      <nav>
+          <ul>
+              <li>
+                  <a href="#ofertas">
+                      <i class="fa-solid fa-face-grin-stars"></i>
+                      <span>Ofertas</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#menu">
+                      <i class="fa-solid fa-bowl-food"></i>
+                      <span>Menu</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#restaurante">
+                      <i class="fa-solid fa-shop"></i>
+                      <span>Restaurantes</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+  
+      <a href="#"><button>Entrar</button></a>
+  </header>
+
+    <main>
+        <h2>Seu Carrinho</h2>
+        <div class="cart">
+            <!-- Cabeçalho dos rótulos -->
+            <div class="cart-header">
+                <span class="header-produto">Produto</span>
+                <span class="header-preco">Preço</span>
+                <span class="header-quantidade">Quantidade</span>
+                <span class="header-total">Total</span>
+    
+            </div>
+
+            
+            <div class="cart-item">
+                <img src="images/pizza.jpg" alt="pizza">
+                <div class="details">
+                    <p>Pizza Italiana</p>
+                </div>
+                <p class="price">R$ 45,00</p>
+                <div class="quantity">
+                    <button>-</button>
+                    <span>2</span>
+                    <button>+</button>
+                </div>
+                <p class="total">R$ 90,00</p>
+                <button class="remove">&times;</button>
+            </div>
+
+            <div class="cart-item">
+                <img src="images/hamburguer.jpg" alt="hamburguer">
+                <div class="details">
+                    <p>Hambúrguer Artesanal</p>
+                </div>
+                <p class="price">R$ 20,00</p>
+                <div class="quantity">
+                    <button>-</button>
+                    <span>2</span>
+                    <button>+</button>
+                </div>
+                <p class="total">R$ 40,00</p>
+                <button class="remove">&times;</button>
+            </div>
+
+            <div class="cart-item">
+                <img src="images/batata.jpg" alt="batata">
+                <div class="details">
+                    <p>Batata Frita</p>
+                </div>
+                <p class="price">R$ 12,00</p>
+                <div class="quantity">
+                    <button>-</button>
+                    <span>2</span>
+                    <button>+</button>
+                </div>
+                <p class="total">R$ 24,00</p>
+                <button class="remove">&times;</button>
+            </div>
+        </div>
+
+        
+        <aside class="summary">
+            <h3>Resumo da compra</h3>
+            <p>Sub-total <span>R$ 154,00</span></p>
+            <p>Frete <span>Gratuito</span></p>
+            <p>Adicionar cupom de desconto</p>
+            <p class="total-price">Total <span>R$ 154,00</span></p>
+            <button class="checkout">FINALIZAR COMPRA</button>
+        </aside>
+    </main>
+    <footer>
+      <img id="logo" src="images\logo.png" alt="Delirius Food">
+      
+      <div class="links">
+          <ul>
+              <li>
+                  <a href="#ofertas">
+                      <i class="fa-solid fa-face-grin-stars"></i>
+                      <span>Ofertas</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#menu">
+                      <i class="fa-solid fa-bowl-food"></i>
+                      <span>Menu</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#restaurante">
+                      <i class="fa-solid fa-shop"></i>
+                      <span>Restaurantes</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+      
+      <div id="texto2">
+          <h3>Encontre Aqui</h3>
+          <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
+      </div>
+  </footer>
+  
+  <div class="bottom-footer">
+      <span id="copyright">
+          &copy 2025 Delirius Food - Todos os direitos reservados.
+      </span>
+  </div>
+  
+</body>
+</html>
