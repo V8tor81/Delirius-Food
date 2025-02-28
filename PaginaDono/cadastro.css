@@ -40,39 +40,6 @@ header .menu-desktop nav ul li a{
     color: #ffff;
     text-decoration: none;
 }
-
-.hero{
-    display: flex;
-    justify-content: center;
-}
-.cards{
-    display: flex;
-    flex-direction: row;
-    padding-top:300px;
-    padding-bottom: 240px;
-  
-}
-.card{
-    margin: 0 25px;
-    background-color: #ffff;
-    border-radius: 25px;
-    padding: 15px;
-    text-align: center;
-}
-.card img{
-    width: 200px;
-    padding: 10px;
-}
-.card .container button{
-    padding: 0.4rem 1rem;
-    background-color: #f6a700;
-    border-radius: 10px;
-    border: 5px;
-    cursor: pointer;
-}
-.card .container button:hover{
-    background-color: rgb(248, 201, 46);
-}
 #cadastrar{
     border: solid 5px black;
     color: #ffff;
@@ -114,33 +81,6 @@ header .menu-desktop nav ul li a{
     aspect-ratio: 1 / 1; /* Mantém proporção quadrada */
     text-align: center; /* Centraliza o texto */
 }
-
-
-
-table{
-    width: 90%;
-    align-items: 20px;
-    border-collapse: collapse;
-    margin: 70px;
-
-}
-th{
-    background-color: #F2B05E;
-    padding: 1rem;
-    font-size: larger;
-}
-td{
-    color: #D96941;
-    padding: 10px;
-    font-size: large;
-}
-
-
-
-
-
-
-
 footer{
     display: flex;
     align-items: center;
@@ -204,4 +144,3 @@ footer #logo{
     font-size: 14px;
     color: #f5f5f5;
 }
-
