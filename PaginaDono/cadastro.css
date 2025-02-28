@@ -10,6 +10,9 @@ body{
     background: linear-gradient(90deg, #C4541D 0%, #D96629 100%); 
     max-width: 100%;
     max-height: 100%;
+    padding-top: 120px;
+    height: 100vh; 
+    margin: 0;
 
     
 }
@@ -18,6 +21,7 @@ header{
     background: linear-gradient(180deg, #C54F1E 0%, #D45A1A 100%);
     padding: 20px 40px;
     position: fixed;
+    top: 0;
     
 }
 header img{
@@ -40,11 +44,21 @@ header .menu-desktop nav ul li a{
     color: #ffff;
     text-decoration: none;
 }
+
+.hero{
+    height: 100vh; /* O formulário ocupa 100% da altura da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6a700;
+    border-radius: 25px;
+}
+
 #cadastrar{
+
     border: solid 5px black;
     color: #ffff;
     display: flex;
-    height: 60vh;
     justify-content: center;
     align-items: center;
     background-color: #f6a700;
@@ -52,6 +66,8 @@ header .menu-desktop nav ul li a{
     width: 800px;
     height: 500px;
     margin: 0 auto;
+    margin-top: 80px;
+    
 }
 #cadastrar h1{
     font-size: xx-large;
@@ -64,6 +80,7 @@ header .menu-desktop nav ul li a{
     width: 100%;
 }
 .disponiveis{
+    margin-top: 200px;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colunas por linha */
     gap: 15px; /* Espaçamento entre os cards */
