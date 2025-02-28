@@ -5,6 +5,6 @@ from flask import request
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/pedidos')
 def home():
     return render_template('home.html')
