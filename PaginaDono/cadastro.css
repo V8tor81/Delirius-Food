@@ -46,7 +46,7 @@ header .menu-desktop nav ul li a{
 }
 
 .hero{
-    height: 100vh; /* O formulário ocupa 100% da altura da tela */
+    height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,24 +79,52 @@ header .menu-desktop nav ul li a{
 .input-box input{
     width: 100%;
 }
-.disponiveis{
+
+.disponiveis {
     margin-top: 200px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas por linha */
-    gap: 15px; /* Espaçamento entre os cards */
-    justify-content: center; /* Centraliza o grid */
+    grid-template-columns: repeat(3, 1fr); 
+    justify-content: center; 
+    align-items: center; 
+    justify-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    
+    
 }
+
+
 .comidas{
+    grid-column: span 5px;
+    margin: 0; 
     padding: 15px;
     border-radius: 8px;
     display: flex;
-    flex-direction: column; /* Empilha os elementos na vertical */
-    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    flex-direction: column; 
+    justify-content: flex-start; 
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 200px; /* Define a largura */
-    aspect-ratio: 1 / 1; /* Mantém proporção quadrada */
-    text-align: center; /* Centraliza o texto */
+    width: 200px; 
+    aspect-ratio: 1 / 1; 
+    text-align: center; 
+    background: beige;
+    margin-bottom: 100px;
+}
+
+.comidas button {
+    background-color: #D45A1A; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 5px 10px; /* Espaçamento interno */
+    font-size: 12px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de mão ao passar o mouse */
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave */
+}
+
+.comidas button:hover {
+    background-color: #C4541D; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o botão */
 }
 footer{
     display: flex;
