@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="interface">
+            <section class="logo">
+                <img src="./img/logo.png" alt="logo">
+            </section>   
+            <section class="menu-desktop">
+                <nav>
+                    <ul>
+                        <li class="menu"><i class="fa-solid fa-tag"></i><a href="./cadastrar.html"> Cadastrar</a></li>
+                        <li class="menu"><i class="fa-solid fa-basket-shopping"></i><a href="./pedidos.html"> Pedidos</a></li>
+                        <li class="menu"><i class="fa-solid fa-file"></i><a href="./relatorio.html"> Relatórios</a></li>
+                    </ul>
+                </nav>
+            </section>  
+        </div>     
+    </header>
+    <section id="cadastrar">
+        <div class="form">
+            <form action="#">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastrar alimento</h1>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="name">Nome</label><br>
+                            <input type="text" id="name" name="nome"><br>
+                        </div>
+                        <div class="input-box">
+                            <label for="text">Preço</label><br>
+                            <input type="number" id="preço" name="preço"><br>
+                        </div>
+                        <div class="input-box">
+                            <label for="data">Fabricação</label><br>
+                            <input type="date" id="fabricação" name="fabricação"><br>
+                        </div>
+                        <div class="input-box">
+                            <label for="data">Validade</label><br>
+                            <input type="date" id="validade" name="validade"><br>
+                        </div>
+                        <div class="input-box">
+                            <label for="quantia">Quantidade</label><br>
+                            <input type="number" id="quantidade" name="quantidade"><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="botao">
+                    <button>Cadastrar</button>
+                </div>
+            </form>
+        </div>
+        
+    </section>
+    <section class="editar">
+        <div class="disponiveis">
+            <div class="comidas">
+                <img src="./img/brig.png" width="200" height="150" alt="Comida">
+                <div class="brig">
+                    <h3>brigadeiro de ninho</h3>
+                    <h4>Cantina</h4>
+                <p><strong>R$ 3,00</strong></p>
+                <button>Editar</button>
+            </div>
+            <div class="comidas">
+                <img src="./img/brig2.png" width="200" height="150" alt="Comida">
+                <div class="brig">
+                    <h3>Caixinha de brigadeiros</h3>
+                    <h4>Cantina</h4>
+                </div>
+                <p><strong>R$ 14,99</strong></p>
+                <button>Editar</button>
+            </div>
+            <div class="comidas">
+                <img src="./img/brig3.png" width="200" height="150" alt="Comida">
+                <div class="brig">
+                    <h3>Ninho com nutella</h3>
+                    <h4>Cantina</h4>
+                </div>
+                <p><strong>R$ 3,00</strong></p>
+                <button>Editar</button>
+            </div>
+            <div class="comidas">
+                <img src="./img/brig5.png" width="200" height="150" alt="Comida">
+                <div class="brig">
+                    <h3>Beijinho</h3>
+                    <h4>Cantina</h4>
+                </div>
+                <p><strong>R$ 3,00</strong></p>
+                <button>Editar</button>
+            </div>
+            <div class="comidas">
+                <img src="./img/brig4.png" width="200" height="150" alt="Comida">
+                <div class="brig">
+                    <h3>Brigadeiro de uva</h3>
+                    <h4>Cantina</h4>
+                </div>
+                <p><strong>R$ 3,00</strong></p>
+                <button>Editar</button>
+            </div>
+            <div class="comidas">
+                <img src="./img/brig6.png" width="200" height="150" alt="Comida">
+                <div class="brig">
+                    <h3>Brigadeiro tradicional</h3>
+                    <h4>Cantina</h4>
+                </div>
+                <p><strong>R$ 3,00</strong></p>
+                <button>Editar</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
