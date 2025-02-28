@@ -11,14 +11,14 @@
     <header>
         <div class="interface">
             <section class="logo">
-                <img src="./img/Mobile (Smartphones) Pequenos 320px - 480px Médios 481px - 767px (1) (1) (1).png" alt="logo">
+                <img src="./img/logo.png" alt="logo">
             </section>   
             <section class="menu-desktop">
                 <nav>
                     <ul>
-                        <li class="menu"><i class="fa-solid fa-tag"></i><a href="./cadastro/cad.html" target="_blank"> Cadastrar</a></li>
-                        <li class="menu"><i class="fa-solid fa-basket-shopping"></i><a href="./pedidos/pedidos.html" target="_blank"> Pedidos</a></li>
-                        <li class="menu"><i class="fa-solid fa-file"></i><a href="./relatório/relatorio.html" target="_blank"> Relatórios</a></li>
+                        <li class="menu"><i class="fa-solid fa-tag"></i><a href="./cadastrar.html"> Cadastrar</a></li>
+                        <li class="menu"><i class="fa-solid fa-basket-shopping"></i><a href="./pedidos.html"> Pedidos</a></li>
+                        <li class="menu"><i class="fa-solid fa-file"></i><a href="./relatorio.html"> Relatórios</a></li>
                     </ul>
                 </nav>
             </section>  
@@ -26,33 +26,65 @@
     </header>
 
     <section class="hero">
-
         <div class="cards">
             <div class="card">
                 <img src="./img/imgProduto.png" alt="cadastro" style="border:5px">
                 <div class="container">
-                    <h3>Novo produto</h3>
-                    <p>Cadastrar produto<br>editar cardápio</p>
-                    <a href="./cadastro/cad.html"><button type="button">Cadastrar</button></a>
+                    <a href="./cadastrar.html"><button type="button">Novo alimento</button></a>
                 </div>
             </div>
             <div class="card">
                 <img src="./img/imageGestões.png" alt="Pedidos">
                 <div class="container">
-                    <h3>Gestão de pedidos</h3>
-                    <p>Atualize o andamento<br>dos pedidos</p>
-                    <a href="./pedidos/pedidos.html"><button type="button">Gerência</button></a>
+                    <a href="./pedidos.html"><button type="button">Gerênciar alimentos</button></a>
                 </div>
             </div>
             <div class="card">
                 <img src="./img/imageRelatório.png" alt="Relatório">
                 <div class="container">
-                    <h3>Relatório de vendas</h3>
-                    <p>Relatório da venda<br>Relatórios anteriores</p>
-                    <a href="./relatório/relatorio.html"><button type="button">Relatórios</button></a>
+                    <a href="./relatorio.html"><button type="button">Relatórios das vendas</button></a>
                 </div>
             </div>
         </div>
     </section>
+
+    <footer>
+        <img id="logo" src="img/logo.png" alt="Delirius Food">
+        
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="./cadastrar.html" target="_blank">
+                        <i class="fa-solid fa-tag"></i>
+                        <span>cadastrar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./pedidos.html" target="_blank">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <span>pedidos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./relatorio.html" target="_blank">
+                        <i class="fa-solid fa-file"></i>
+                        <span>Relatório</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="texto2">
+            <h3>Encontre Aqui</h3>
+            <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
+        </div>
+    </footer>
+    
+    <div class="bottom-footer">
+            <span id="copyright">
+                &copy 2025 Delirius Food - Todos os direitos reservados.
+            </span>
+    </div>
+
 </body>
 </html>

@@ -3,14 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Restaurantes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/restaurantes.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    
+    <title>Lista de Restaurantes</title>
 </head>
 <body>
+    <header>
+        <a href="home.html"><img id="logo" src="/img/logo.png" alt="Delirius Food"></a>
+        
+        <nav>
+            <ul>
+                <li>
+                    <a href="#ofertas">
+                        <i class="fa-solid fa-face-grin-stars"></i>
+                        <span>Ofertas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#restaurante">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>Restaurantes</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <a href="#"><button>Entrar</button></a>
+    </header>
+
+
     <div class="container">
-        <h2>Restaurantes Disponíveis</h2>
-       
+       <h2>Restaurantes</h2>
         <div class="filters">
             <select>
                 <option value="">Filtrar por nota</option>
@@ -45,78 +81,123 @@
        
         <div class="restaurant-list">
             <div class="restaurant">
-                <img src="img/hambuguer1.webp" width="200" height="200" alt="Comida">
+                <img src="/img/hambuguer1.webp" width="200" height="200" alt="Comida">
                 <div class="info">
                     <h3>hambuguer</h3>
                     <h4>Hamburguer do paulista</h4>
                     <p>Tempo: 40 min | Nota: 4.4</p>
+                    <p><strong>R$ 16,25</strong></p>
                 </div>
-                <p><strong>R$ 16,25</strong></p>
             </div>
+            
             <div class="restaurant">
-                <img src="img/pastel2.jpg" width="200" height="200" alt="Comida">
+                <img src="/img/pastel2.jpg" width="200" height="200" alt="Comida">
                 <div class="info">
                     <h3>Pastel de Carne</h3>
                     <h4>Pastel da anny</h4>
-                    <p>Tempo: 60 min | Nota: 4.4</p>
+                    <p>Tempo: 20 min | Nota: 3.0-</p>
+                    <p><strong>R$ 10,99</strong></p>
                 </div>
-                <p><strong>R$ 19,99</strong></p>
             </div>
+            
             <div class="restaurant">
-                <img src="img/pizza2.jpg" width="200" height="200" alt="Comida">
+                <img src="/img/pizza2.jpg" width="200" height="200" alt="Comida">
                 <div class="info">
-                    <h3>Pizza de Queijo com Presunto</h3>
+                    <h3>Pizza de Queijo</h3>
                     <h4>Pizzaria do seu João</h4>
                     <p>Tempo: 53 min | Nota: 4.8</p>
+                    <p><strong>R$ 24,99</strong></p>
                 </div>
-                <p><strong>R$ 24,99</strong></p>
             </div>
+
             <div class="restaurant">
-                <img src="img/batatinha1.avif" width="200" height="200" alt="Comida">
+                <img src="/img/batatinha1.avif" width="200" height="200" alt="Comida">
                 <div class="info">
-                    <h3>batatinha Frita </h3>
+                    <h3>Batatinha Frita</h3>
                     <h4>Besteirinhas do zé</h4>
-                    <p>Tempo: 40 min | Nota: 4.4</p>
+                    <p>Tempo: 25 min | Nota: 4.4</p>
+                    <p><strong>R$ 15,59</strong></p>
                 </div>
-                <p><strong>R$ 16,25</strong></p>
             </div>
+            
             <div class="restaurant">
-                <img src="img/sushi1.jpg" width="200" height="200" alt="Comida">
+                <img src="/img/sushi1.jpg" width="200" height="200" alt="Comida">
                 <div class="info">
                     <h3>Sushi </h3>
                     <h4>Comida Japonesa</h4>
                     <p>Tempo: 60 min | Nota: 4.4</p>
+                    <p><strong>R$ 37,00</strong></p>
                 </div>
-                <p><strong>R$ 19,99</strong></p>
             </div>
+            
             <div class="restaurant">
-                <img src="img/trufas.jpg" width="200" height="200" alt="Comida">
+                <img src="/img/trufas.jpg" width="200" height="200" alt="Comida">
                 <div class="info">
                     <h3>Trufa de Maracuja</h3>
                     <h4>Trufas da kali</h4>
-                    <p>Tempo: 53 min | Nota: 4.8</p>
+                    <p>Tempo: 10 min | Nota: 4.8</p>
+                    <p><strong>R$ 3,00</strong></p>
                 </div>
-                <p><strong>R$ 24,99</strong></p>
             </div>
+
             <div class="restaurant">
-                <img src="img/sorvete1.webp" width="200" height="200" alt="Comida">
+                <img src="/img/sorvete1.webp" width="200" height="200" alt="Comida">
                 <div class="info">
-                    <h3>Sorvete de Morango e Limão</h3>
-                    <h4>Hamburguer do paulista</h4>
-                    <p>Tempo: 60 min | Nota: 4.4</p>
+                    <h3>Sorvete</h3>
+                    <h4>gelado da M</h4>
+                    <p>Tempo: 15 min | Nota: 3.0</p>
+                    <p><strong>R$ 19,99</strong></p>
                 </div>
-                <p><strong>R$ 19,99</strong></p>
             </div>
+
             <div class="restaurant">
-                <img src="img/bolo1.avif" width="200" height="200" alt="Comida">
+                <img src="/img/bolo1.avif" width="200" height="200" alt="Comida">
                 <div class="info">
-                    <h3>Bolo de Chocolate com Morangos</h3>
+                    <h3>Bolo de Chocolate</h3>
                     <h4>Bolos já</h4>
-                    <p>Tempo: 53 min | Nota: 4.8</p>
+                    <p>Tempo: 53 min | Nota: 5.0</p>
+                    <p><strong>R$ 24,99</strong></p>
                 </div>
-                <p><strong>R$ 24,99</strong></p>
             </div>
         </div>
+    </div>
+
+    <footer>
+        <img id="logo" src="/img/logo.png" alt="Delirius Food">
+        
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="#ofertas">
+                        <i class="fa-solid fa-face-grin-stars"></i>
+                        <span>Ofertas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#restaurante">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>Restaurantes</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="texto2">
+            <h3>Encontre Aqui</h3>
+            <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
+        </div>
+    </footer>
+    
+    <div class="bottom-footer">
+            <span id="copyright">
+                &copy 2025 Delirius Food - Todos os direitos reservados.
+            </span>
     </div>
 </body>
 </html>
