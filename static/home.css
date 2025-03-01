@@ -295,8 +295,8 @@ footer{
     gap: 20px;
 }
 
-footer #logo{
-    width: 15%;
+footer img{
+    width: 5%;
 }
 
 .links ul {
@@ -376,10 +376,6 @@ footer #logo{
     #restaurante .cards{
         margin-left: 50px;
     }
-
-    footer img{
-        width: 5%;
-    }
 }
 /* Estilos para telas menores de 320px de largura */
 
@@ -387,24 +383,31 @@ footer #logo{
     header{
         width: 100%;
         background: linear-gradient(180deg, #C54F1E 0%, #D45A1A 100%);
-        padding: 15px;
+        padding: 15px 8px;
         position: fixed;
         top: 0;
         display: flex;
     }
 
     #logo{
-        width: 100px; 
+        width: 140px; 
     }
     
     header nav ul{
         list-style: none;
         padding: 0; 
-        margin-left: 120px;   
+        gap: 15px;  
     }
     
-    header nav ul li a{
+    header nav ul li a span{
         display: none;    
+    }
+
+    header button{
+        font-size: 12px;
+        padding: 10px;
+        margin-top: 5px;
+        margin-right: 47px;
     }
 
     /* Hero */

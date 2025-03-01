@@ -78,7 +78,7 @@ footer{
 }
 
 footer img{
-    width: 15%;
+    width: 5%;
 }
 
 .links ul {
@@ -250,9 +250,5 @@ footer img{
 
     .disponiveis {
         grid-template-columns: repeat(4, 1fr);
-    }
-
-    footer img{
-        width: 5%;
     }
 }

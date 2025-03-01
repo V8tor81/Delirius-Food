@@ -162,7 +162,7 @@ footer{
 }
 
 footer img{
-    width: 15%;
+    width: 5%;
 }
 
 .links ul {
@@ -369,9 +369,5 @@ footer img{
     table{
         margin-top: 21vh;
         margin-bottom: 16vh;
-    }
-
-    footer img{
-        width: 5%;
     }
 }
