@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
 
+
 *{
     margin: 0;
     padding: 0;
@@ -7,23 +8,26 @@
     font-family: 'Quicksand';
 }
 
+
 body{
-    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%); 
+    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%);
     max-width: 100%;
     max-height: 100%;
 }
+
 
 header{
     width: 100%;
     background: linear-gradient(180deg, #C54F1E 0%, #D45A1A 100%);
     padding: 20px 40px;
     position: fixed;
-    
 }
+
 
 header img{
     width: 100%;
 }
+
 
 header .interface{
     display: flex;
@@ -31,9 +35,11 @@ header .interface{
     align-items: center;
 }
 
+
 header .menu-desktop nav ul{
     list-style: none;
 }
+
 
 header .menu-desktop nav ul li{
     display: inline-block;
@@ -41,22 +47,121 @@ header .menu-desktop nav ul li{
     color: #ffff;
 }
 
+
 header .menu-desktop nav ul li a{
     color: #ffff;
     text-decoration: none;
 }
 
+
+.hero{
+    display: flex;
+    justify-content: center;
+}
+
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    padding-top:300px;
+    padding-bottom: 240px;  
+}
+
+
+.card{
+    margin: 0 25px;
+    background-color: #ffff;
+    border-radius: 25px;
+    padding: 15px;
+    text-align: center;
+}
+
+
+.card img{
+    width: 200px;
+    padding: 10px;
+}
+
+
+.card .container button{
+    padding: 0.4rem 1rem;
+    background-color: #E97842;
+    border-radius: 10px;
+    border: 5px;
+    cursor: pointer;
+}
+
+
+.card .container button:hover{
+    background-color: #C54F1E;
+}
+
+
+#cadastrar{
+    border: solid 5px black;
+    color: #ffff;
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6a700;
+    border-radius: 25px;
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+
+#cadastrar h1{
+    font-size: xx-large;
+    padding-bottom: 20px;
+}
+
+
+#cadastrar label{
+    font-size: x-large;
+}
+
+
+.input-box input{
+    width: 100%;
+}
+
+
+.disponiveis{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas por linha */
+    gap: 15px; /* Espaçamento entre os cards */
+    justify-content: center; /* Centraliza o grid */
+}
+
+
+.comidas{
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Empilha os elementos na vertical */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 200px; /* Define a largura */
+    aspect-ratio: 1 / 1; /* Mantém proporção quadrada */
+    text-align: center; /* Centraliza o texto */
+}
+
+
 .relatorio{
     padding-top: 60px;
 }
+
 
 table{
     width: 90%;
     align-items: 20px;
     border-collapse: collapse;
     margin: 70px;
-
 }
+
 
 th{
     color: #1f1f1f;
@@ -65,6 +170,7 @@ th{
     font-size: x-large;
 }
 
+
 td{
     background-color: #f5f5f5;
     color: #1f1f1f;
@@ -72,25 +178,29 @@ td{
     font-size: large;
 }
 
+
 footer{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
-    background-color: #C4541D; 
+    background-color: #C4541D;
     gap: 20px;
 }
+
 
 footer #logo{
     width: 15%;
 }
 
+
 .links ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px; 
+    gap: 10px;
 }
+
 
 .links ul li a {
     display: flex;
@@ -100,6 +210,7 @@ footer #logo{
     color: #f5f5f5;
 }
 
+
 #texto2 {
     display: flex;
     flex-direction: column;
@@ -107,10 +218,12 @@ footer #logo{
     gap: 5px;
 }
 
+
 #texto2 h3{
     font-size: 23px;
     color: #f5f5f5;
 }
+
 
 #search2 {
     padding: 8px;
@@ -120,6 +233,7 @@ footer #logo{
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+
 .bottom-footer{
     background-color: #C4541D;
     padding: 20px;
@@ -127,6 +241,7 @@ footer #logo{
     font-size: 14px;
     border-top: 1px solid #2422224d;
 }
+
 
 #copyright{
     display: flex;
@@ -136,15 +251,18 @@ footer #logo{
     color: #f5f5f5;
 }
 
+
+
 @media screen and (max-width: 390px) {
 
-<<<<<<< HEAD
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
+
 
 body {
     width: 100%;
@@ -153,15 +271,19 @@ body {
 }
 
 
+
+
 header {
     background-color: #ff6600;
     padding: 10px;
     text-align: center;
 }
 
+
 .logo img {
-    width: 120px; 
+    width: 120px;
 }
+
 
 .menu-desktop ul {
     display: flex;
@@ -170,14 +292,17 @@ header {
     padding: 10px;
 }
 
+
 .menu-desktop ul li {
     font-size: 14px;
 }
+
 
 .menu-desktop ul li a {
     color: white;
     text-decoration: none;
 }
+
 
 @media (max-width: 480px) {
     .menu-desktop ul {
@@ -185,10 +310,12 @@ header {
         align-items: center;
     }
 
+
     .menu-desktop ul li {
         padding: 5px 0;
     }
 }
+
 
 .relatorio {
     width: 100%;
@@ -208,9 +335,11 @@ table {
     max-width: 320px;
 }
 
+
 table thead {
     display: none;
 }
+
 
 table tr {
     display: flex;
@@ -224,6 +353,7 @@ table tr {
     box-sizing: border-box;
 }
 
+
 table td {
     display: flex;
     align-items: center;
@@ -233,15 +363,18 @@ table td {
     border-bottom: 1px solid #ddd;
 }
 
+
 table td:last-child {
     border-bottom: none;
 }
+
 
 table td i {
     font-size: 14px;
     color: #ff6600;
     margin-right: 5px;
 }
+
 
 .relatorio th {
     font-size: 16px;
@@ -254,15 +387,19 @@ table td i {
     width: 100%;
 }
 
+
 @media (max-width: 320px) {
     table td {
         font-size: 12px;
     }
 
+
     .relatorio th {
         font-size: 14px;
     }
 }
+
+
 
 
 footer {
@@ -272,6 +409,7 @@ footer {
     padding: 10px 0;
 }
 
+
 footer .links ul {
     display: flex;
     justify-content: center;
@@ -280,24 +418,29 @@ footer .links ul {
     padding: 10px 0;
 }
 
+
 footer .links ul li {
     font-size: 12px;
 }
+
 
 footer .links ul li a {
     color: white;
     text-decoration: none;
 }
 
+
 #texto2 h3 {
     font-size: 14px;
 }
+
 
 #search2 {
     width: 90%;
     padding: 5px;
     margin-top: 5px;
 }
+
 
 .bottom-footer {
     background-color:#D45A1A;
@@ -307,9 +450,9 @@ footer .links ul li a {
     padding: 5px 0;
 }
 
+
 }
-        
-=======
+       
 @media screen and (max-width:320px) and (max-height: 780px) {
     .relatorio{
         display: grid;
@@ -320,14 +463,43 @@ footer .links ul li a {
     }
     .interface{
         font-size:20px;
-        
+       
     }
-    
+   
+
 
     body{
-    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%); 
+    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%);
     max-width: 100%;
     max-height: 100vh;
     }
+    .menu-desktop a{
+        display: none;
+    }
+    .menu-desktop li{
+        font-size: xx-large;
+    }
+    .relatorio{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows:
+        "main main main main";
+        width: 100%;
+        border:1px solid blue;
+    }
+    .relatorio{
+        border: 1px solid black;
+    }
+    footer{
+        grid-column:  repeat(4, 1fr);
+    }
 }
->>>>>>> ff0ad3ddc839d881973ee4899fe497a212ac9cde
+
+
+/*VERSÃO LAPTOP*/
+@media screen and (max-width: 1440px) and (max-height: 1024px) {
+    table{
+        margin-top: 21vh;
+        margin-bottom: 15vh;
+    }
+}

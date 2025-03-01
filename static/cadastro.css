@@ -1,247 +1,131 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family:'Times New Roman', Times, serif;
 }
 
-body{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%); 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #C54F1E;
 }
-
-.container{
-    width: 50%;
-    height: 500px;
-    display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
-    border: 1px solid green;
-}
-
-
-
-.forms{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: beige;
-    padding: 3rem;
-    border-radius: 5%;
-    border: 1px solid blue;
-    margin-bottom: 200px;
-
-}
-
-.forms-header{
-    margin-bottom: 1.3rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.login-button{   /*posicionamento do botão entrar*/
-    display: flex;
-    align-items: center;
-}
-
-.login-button button{  /*mudando cor e demais do botão entrar*/
-    border: none;
-    background-color: burlywood;
-    padding: 0.4rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-button button:hover{   /*mudar a cor do botão entrar ao passar o mouse*/
-    background-color: rgb(230, 171, 94);
-}
-
-.login-button button a{  /*estilizando o texto entrar*/
-    text-decoration: none;
-    font-weight: 500;
-    color: black;
-}
-
-.forms-header h1::after{   /*linha embaixo de cadastre-se*/
-    content: '';
-    display: block;
-    width: 70px;
-    height: 0.3rem;
-    background-color: burlywood;
-    margin: 0 auto;
-    position: absolute;
-    border-radius: 10px;
-}
-
-.input-group{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-}
-
-.input-box{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.31rem;
-}
-
-.input-box input{
-    margin: 0.4rem 0;
-    padding: 0.8rem 1.2rem;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 6px #0000001c;
-    font-size: 0.8rem;
-    color: #6b5c5c;
-}
-
-.input-box input:hover{
-    background-color: #eeeeee75;
-}
-
-.input-box input:focus-visible{
-    outline: 1px solid black;
-}
-
-.input-box label,
-.gender-title h6{
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #000000;
-}
-
-.gender-group{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.62rem;
-    padding: 0 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.gender-title{
-    margin-top: 0.3rem;
-}
-
-.gender-input{
-    display: flex;
-    align-items: center;
-}
-
-.gender-input input{
-    margin-right: 0.35rem;
-}
-
-.gender-input label{
-    font-size: 0.81rem;
-    font-weight: 600;
-    color: #000000;
-}
-.continue-button{
-    width: 100px;
-}
-.continue-button input{
-    width: 300px;
-    margin-top: 1rem;
-    border: none;
-    background-color: burlywood;
-    padding: 0.62rem;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    -ms-flex-align: center;
-}
-
-.continue-button input:hover{
-    background-color: rgb(230, 171, 94);
-}
-
-.heart{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.62rem;
-    padding: 0.5rem;
-    font-weight: 600;
-    color: #000000;
-    padding: 0 0.2rem;
-}
-
-.heart-title{
-    font-size: 1.1rem;
-}
-
-.heart-input{
-    display: flex;
-    align-items: center;
-    font-size: 0.81rem;
-    margin-right: 2.5em;
-}
-
-.continue-button{
-    padding: 20px;
-    width: 50px;
-
-}
-
-.container{
-    margin-top: 20px;
-}
-
 h1{
-    color: #C4541D;
+    color: #C54F1E;
 }
-@media screen and (max-width: 320px){
-    body{
-        width: 300px;
-        align-items: center;
-    }
-    form{
-        width: 300px;
-        margin-left: 35%;
-    }
-}
-/*deixando o forms responsivo*/
-/*as media screen abaixo são para tamanhos de tela diferentes*/
-@media screen and (max-width: 1330px) {
-    .forms-image{
-        display: none;
-    }
-    .container{
-        width: 10%;
-        height: 90%;
-    }
-    .forms{
-        width: 100%;
-    }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 15px;
 }
 
-@media screen and (max-width: 1064px) {
-    .container{
-        display: flex;
-        -ms-flex-align: center;
-        width: 85%;
-        height: auto;
+.forms {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.forms-header .title h1 {
+    text-align: center;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+.input-box label {
+    font-size: 0.9rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+.gender-inputs .gender-title h6 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.gender-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gender-input {
+    display: flex;
+    align-items: center;
+}
+
+.gender-input input {
+    margin-right: 5px;
+}
+
+.continue-button input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #C54F1E;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.continue-button input:hover {
+    background-color: #C54F1E;
+}
+
+@media screen and (max-width: 320px) {
+    /* Ajustes para telas pequenas */
+    .container {
+        padding: 0;
     }
-    .input-group{
+
+    .forms {
+        padding: 15px;
+    }
+
+    .forms-header .title h1 {
+        font-size: 1.2rem;
+    }
+
+    .input-box input {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .gender-inputs .gender-title h6 {
+        font-size: 0.9rem;
+    }
+
+    .gender-group {
         flex-direction: column;
-        overflow-y: scroll;
-        flex-wrap: nowrap;
-        max-height: 10rem;
-        padding-right: 5rem;
+        align-items: flex-start;
     }
-    .gender-inputs{
-        margin-top: 2rem;
+
+    .gender-input {
+        margin-bottom: 10px;
     }
-    .gender-group{
-        flex-direction: column;
-    }
-    .gender-input{
-        margin-top: 0.5rem;
+
+    .continue-button input {
+        font-size: 0.9rem;
     }
 }

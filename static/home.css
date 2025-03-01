@@ -377,3 +377,187 @@ footer #logo{
         margin-left: 50px;
     }
 }
+/* Estilos para telas menores de 320px de largura */
+
+@media (max-width: 320px) {
+    /* Estilo base */
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+    }
+
+    #logo {
+        width: 80%;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    header button {
+        padding: 12px;
+        font-size: 14px;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: 120px;
+        height: auto;
+        padding: 30px 15px;
+        margin-top: 120px;
+        text-align: center;
+    }
+
+    .hero img {
+        width: 70%;
+        padding-right: 0;
+    }
+
+    #texto h1 {
+        font-size: 24px;
+        padding-bottom: 10px;
+    }
+
+    #search {
+        width: 90%;
+        padding: 8px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .search-icon {
+        right: 5%;
+        top: 65%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    /* Ofertas e Novidades */
+    #ofertas {
+        margin-top: 30px;
+        padding: 20px 10px;
+    }
+
+    #ofertas .oferta, 
+    #ofertas .novidade {
+        width: 100%;
+        background-color: beige;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+    }
+
+    #ofertas img {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    #ofertas h3 {
+        font-size: 24px;
+        color: #C54F1E;
+        text-align: center;
+    }
+
+    .oferta {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .oferta img {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    /* Cards */
+    #menu .cards, #restaurante .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #menu .card, #restaurante .card {
+        width: 90%;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: beige;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #menu .card img, #restaurante img {
+        width: 80%;
+    }
+
+    /* Restaurantes */
+    #restaurante {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+
+    #restaurante .card {
+        padding: 20px;
+    }
+
+    /* Footer */
+    footer {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    footer #logo {
+        width: 40%;
+    }
+
+    footer .links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .links ul li {
+        margin-bottom: 10px;
+    }
+
+    footer #texto2 input {
+        width: 90%;
+        padding: 8px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .bottom-footer {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .bottom-footer,
+    #copyright {
+        font-size: 12px;
+    }
+}
