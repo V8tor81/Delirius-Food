@@ -325,3 +325,161 @@ footer #logo {
         padding: 14px;
     }
 }
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        width: 100%;
+    }
+
+    header nav ul {
+        padding-left: 0;
+        padding-right: 0;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        margin-top: 120px;
+        padding: 10px;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-top: 80px;
+        padding-top: 50px;
+    }
+
+    
+
+    .cart-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .cart-item img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .details {
+        flex: 1;
+        padding: 0;
+    }
+
+    .details p {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .price,
+    .total {
+        flex: 1;
+        text-align: right;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .quantity {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 5px;
+    }
+
+    .quantity button {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .quantity span {
+        font-size: 14px;
+    }
+
+    .remove {
+        flex: 0.5;
+        text-align: right;
+        font-size: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #ff4d4d;
+        padding: 0;
+        margin: 0;
+        line-height: 1;
+    }
+
+    .remove:hover {
+        color: #cc0000;
+    }
+
+    .summary {
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .summary h3 {
+        font-size: 18px;
+    }
+
+    .summary p {
+        font-size: 14px;
+    }
+
+    .total-price {
+        font-size: 18px;
+    }
+
+    .checkout {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    footer #logo {
+        width: 50%;
+    }
+
+    .links ul {
+        align-items: center;
+        gap: 5px;
+    }
+
+    #texto2 {
+        align-items: center;
+    }
+
+    #texto2 h3 {
+        font-size: 18px;
+    }
+
+    #search2 {
+        width: 100%;
+        padding: 6px;
+    }
+
+    .bottom-footer {
+        padding: 15px;
+    }
+
+    #copyright {
+        font-size: 12px;
+    }
+}
