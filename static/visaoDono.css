@@ -81,7 +81,7 @@ footer{
     gap: 20px;
 }
 
-footer #logo{
+footer img{
     width: 15%;
 }
 
@@ -136,7 +136,31 @@ footer #logo{
     color: #f5f5f5;
 }
 
+/*VERSÃO MOBILE*/
 @media (max-width: 768px) {
+    header .logo img {
+        width: 100px; 
+    }
+    
+    header{
+        width: 100%;
+        background: linear-gradient(180deg, #C54F1E 0%, #D45A1A 100%);
+        padding: 15px;
+        position: fixed;
+        top: 0;
+        display: flex;
+    }
+    
+    header .menu-desktop nav ul{
+        list-style: none;
+        padding: 0; 
+        margin-left: 120px;   
+    }
+    
+    header .menu-desktop nav ul li a{
+        display: none;    
+    }
+    
     .cards {
         flex-direction: column;
         padding-top: 150px;
@@ -161,26 +185,60 @@ footer #logo{
         grid-template-columns: repeat(2, 1fr);
     }
 
-    footer {
+    footer{
+        display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 20px;
+        background-color: #C4541D;
+        gap: 10px;
+    }
+    
+    footer img{
+        width: 25%;
+    }
+    
+    .links ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         text-align: center;
     }
-
-    footer img{
-        width: 30%;
+    
+    .links ul li a {
+        color: #f5f5f5;
+        font-size: 12px;
     }
-
-    .links ul {
-        flex-direction: row;
-        gap: 20px;
+    
+    #texto2 h3{
+        font-size: 16px;
+        color: #f5f5f5;
+        text-align: center;
     }
-
-    #texto2 {
-        margin-top: 20px;
+    
+    #search2 {
+        padding: 5px;
+        width: 90%;
+        border-radius: 5px;
+        border: 1px solid #888;
+    }
+    
+    .bottom-footer{
+        background-color: #C4541D;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+        border-top: 1px solid #2422224d;
+    }
+    
+    #copyright{
+        font-size: 10px;
+        color: #f5f5f5;
     }
 }
 
+/*VERSÃO LAPTOP*/
 @media (min-width: 769px) {
     .cards {
         flex-direction: row;
@@ -193,5 +251,9 @@ footer #logo{
 
     .disponiveis {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    footer img{
+        width: 5%;
     }
 }

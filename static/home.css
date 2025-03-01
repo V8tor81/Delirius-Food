@@ -376,46 +376,35 @@ footer #logo{
     #restaurante .cards{
         margin-left: 50px;
     }
+
+    footer img{
+        width: 5%;
+    }
 }
 /* Estilos para telas menores de 320px de largura */
 
-@media (max-width: 320px) {
-    /* Estilo base */
-    body {
-        font-size: 14px;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 15px;
-    }
-
-    #logo {
-        width: 80%;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    nav ul li {
-        margin: 0;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
-    header button {
-        padding: 12px;
-        font-size: 14px;
+@media (max-width: 320px) {    
+    header{
         width: 100%;
-        border-radius: 10px;
+        background: linear-gradient(180deg, #C54F1E 0%, #D45A1A 100%);
+        padding: 15px;
+        position: fixed;
+        top: 0;
+        display: flex;
+    }
+
+    #logo{
+        width: 100px; 
+    }
+    
+    header nav ul{
+        list-style: none;
+        padding: 0; 
+        margin-left: 120px;   
+    }
+    
+    header nav ul li a{
+        display: none;    
     }
 
     /* Hero */
@@ -524,40 +513,55 @@ footer #logo{
     }
 
     /* Footer */
-    footer {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px 10px;
-        text-align: center;
-    }
-
-    footer #logo {
-        width: 40%;
-    }
-
-    footer .links ul {
+    footer{
+        display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 20px;
+        background-color: #C4541D;
+        gap: 10px;
     }
-
-    footer .links ul li {
-        margin-bottom: 10px;
+    
+    footer img{
+        width: 25%;
     }
-
-    footer #texto2 input {
+    
+    .links ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .links ul li a {
+        color: #f5f5f5;
+        font-size: 12px;
+    }
+    
+    #texto2 h3{
+        font-size: 16px;
+        color: #f5f5f5;
+        text-align: center;
+    }
+    
+    #search2 {
+        padding: 5px;
         width: 90%;
-        padding: 8px;
-        font-size: 14px;
-        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #888;
     }
-
-    .bottom-footer {
-        font-size: 12px;
+    
+    .bottom-footer{
+        background-color: #C4541D;
         padding: 10px;
-    }
-
-    .bottom-footer,
-    #copyright {
+        text-align: center;
         font-size: 12px;
+        border-top: 1px solid #2422224d;
+    }
+    
+    #copyright{
+        font-size: 10px;
+        color: #f5f5f5;
     }
 }
