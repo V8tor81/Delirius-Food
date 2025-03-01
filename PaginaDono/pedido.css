@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -11,6 +12,7 @@ body{
     max-width: 100%;
     max-height: 100%;
 }
+
 header{
     width: 100%;
     background: linear-gradient(180deg, #C54F1E 0%, #D45A1A 100%);
@@ -18,35 +20,36 @@ header{
     position: fixed;
     
 }
+
 header img{
     width: 100%;
 }
+
 header .interface{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 header .menu-desktop nav ul{
     list-style: none;
 }
+
 header .menu-desktop nav ul li{
     display: inline-block;
     margin: 0 40px;
     color: #ffff;
 }
+
 header .menu-desktop nav ul li a{
     color: #ffff;
     text-decoration: none;
 }
 
-
-
-
-
-
 .relatorio{
     padding-top: 60px;
 }
+
 table{
     width: 90%;
     align-items: 20px;
@@ -54,24 +57,20 @@ table{
     margin: 70px;
 
 }
+
 th{
     color: #1f1f1f;
     background-color: #E97842;
     padding: 1rem;
     font-size: x-large;
 }
+
 td{
     background-color: #f5f5f5;
     color: #1f1f1f;
     padding: 10px;
     font-size: large;
 }
-
-
-
-
-
-
 
 footer{
     display: flex;
