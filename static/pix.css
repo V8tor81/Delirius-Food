@@ -1,0 +1,37 @@
+body {
+    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%); 
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+h1 {
+    color: #C4541D; /* Cor verde para sucesso */
+}
+.pix-info {
+    margin-top: 20px;
+    font-size: 18px;
+}
+.qr-code {
+    margin-top: 20px;
+}
+img {
+    max-width: 200px;
+}
+.instructions {
+    margin-top: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+}
