@@ -15,7 +15,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Centraliza os itens verticalmente */
     padding: 20px 40px;
     position: fixed;
     top: 0;
@@ -54,7 +53,6 @@ header button {
     font-weight: bold;
     cursor: pointer;
     margin-left: auto;
-    /* Empurra o botão para o canto direito */
 }
 
 header button:hover {
@@ -136,6 +134,29 @@ header button:hover {
     color: #1f1f1f;
 }
 
+.carrinho-btn {
+    background-color: #E97842;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 18px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.carrinho-btn:hover {
+    background-color: #C54F1E;
+}
+
+.carrinho-btn i {
+    font-size: 16px;
+}
+
 h2 {
     text-align: center;
     padding: 50px;
@@ -151,7 +172,7 @@ footer {
     min-height: 200px;
 }
 
-footer img{
+footer img {
     width: 5%;
 }
 
@@ -262,6 +283,7 @@ footer img{
     }
 
     footer{
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -273,7 +295,7 @@ footer img{
     footer img{
         width: 25%;
     }
-    
+
     .links ul {
         list-style: none;
         display: flex;
@@ -281,34 +303,34 @@ footer img{
         gap: 10px;
         text-align: center;
     }
-    
+
     .links ul li a {
         color: #f5f5f5;
         font-size: 12px;
     }
-    
-    #texto2 h3{
+
+    #texto2 h3 {
         font-size: 16px;
         color: #f5f5f5;
         text-align: center;
     }
-    
+
     #search2 {
         padding: 5px;
         width: 90%;
         border-radius: 5px;
         border: 1px solid #888;
     }
-    
-    .bottom-footer{
+
+    .bottom-footer {
         background-color: #C4541D;
         padding: 10px;
         text-align: center;
         font-size: 12px;
         border-top: 1px solid #2422224d;
     }
-    
-    #copyright{
+
+    #copyright {
         font-size: 10px;
         color: #f5f5f5;
     }
@@ -321,4 +343,4 @@ footer img{
         padding-left: 200px;
         padding-right: 200px;
     }
-}
+} 
