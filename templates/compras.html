@@ -5,19 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/static/compras.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-
     <title>Carrinho de Compras</title>
 </head>
 <body>
     <header>
         <a href="home.html"><img id="logo" src="/img/logo.png" alt="Delirius Food"></a>
-      
         <nav>
             <ul>
                 <li>
@@ -40,7 +36,6 @@
                 </li>
             </ul>
         </nav>
-  
         <a href="login.html"><button>Entrar</button></a>
     </header>
 
@@ -55,7 +50,6 @@
                 <span class="header-total">Total</span>
             </div>
 
-            
             <div class="cart-item">
                 <img src="/img/pizza3.jpg" alt="pizza">
                 <div class="details">
@@ -63,9 +57,9 @@
                 </div>
                 <p class="price">R$ 45,00</p>
                 <div class="quantity">
-                    <button>-</button>
-                    <span>2</span>
-                    <button>+</button>
+                    <button class="decrease">-</button>
+                    <span class="qty">2</span>
+                    <button class="increase">+</button>
                 </div>
                 <p class="total">R$ 90,00</p>
                 <button class="remove">&times;</button>
@@ -78,9 +72,9 @@
                 </div>
                 <p class="price">R$ 20,00</p>
                 <div class="quantity">
-                    <button>-</button>
-                    <span>2</span>
-                    <button>+</button>
+                    <button class="decrease">-</button>
+                    <span class="qty">2</span>
+                    <button class="increase">+</button>
                 </div>
                 <p class="total">R$ 40,00</p>
                 <button class="remove">&times;</button>
@@ -93,28 +87,66 @@
                 </div>
                 <p class="price">R$ 12,00</p>
                 <div class="quantity">
-                    <button>-</button>
-                    <span>2</span>
-                    <button>+</button>
+                    <button class="decrease">-</button>
+                    <span class="qty">2</span>
+                    <button class="increase">+</button>
                 </div>
                 <p class="total">R$ 24,00</p>
                 <button class="remove">&times;</button>
             </div>
         </div>
-        
+       
         <aside class="summary">
             <h3>Resumo da compra</h3>
             <p>Sub-total <span>R$ 154,00</span></p>
             <p>Frete <span>Gratuito</span></p>
             <p>Adicionar cupom de desconto</p>
             <p class="total-price">Total <span>R$ 154,00</span></p>
-            <button class="checkout">FINALIZAR COMPRA</button>
+            <a href="finalizacaoPedido.html">
+                <button class="checkout">
+                    FINALIZAR COMPRA 
+                </button>
         </aside>
     </main>
 
+    <script>
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const price = parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.'));
+            const quantityElement = item.querySelector('.qty');
+            const totalElement = item.querySelector('.total');
+           
+            // Aumentar a quantidade
+            item.querySelector('.increase').addEventListener('click', () => {
+                let qty = parseInt(quantityElement.innerText);
+                qty++;
+                quantityElement.innerText = qty;
+                totalElement.innerText = 'R$ ' + (price * qty).toFixed(2).replace('.', ',');
+            });
+           
+            // Diminuir a quantidade
+            item.querySelector('.decrease').addEventListener('click', () => {
+                let qty = parseInt(quantityElement.innerText);
+                if (qty > 0) {
+                    qty--;
+                    quantityElement.innerText = qty;
+                    totalElement.innerText = 'R$ ' + (price * qty).toFixed(2).replace('.', ',');
+
+                    if (qty === 0) {
+                    item.remove();
+                }
+
+                }
+            });
+           
+            // Remover o item
+            item.querySelector('.remove').addEventListener('click', () => {
+                item.remove();
+            });
+        });
+    </script>
+
     <footer>
       <img src="/img/favicon.png" alt="Delirius Food">
-      
       <div class="links">
           <ul>
               <li>
@@ -137,18 +169,16 @@
               </li>
           </ul>
       </div>
-      
       <div id="texto2">
           <h3>Encontre Aqui</h3>
           <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
       </div>
   </footer>
-  
+ 
   <div class="bottom-footer">
       <span id="copyright">
           &copy 2025 Delirius Food - Todos os direitos reservados.
       </span>
   </div>
-  
 </body>
 </html>
