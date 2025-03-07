@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\Users\20221174010036\Documents\GitHub\Delirius-Food\.venv
+set VIRTUAL_ENV=D:\Users\20221174010014\Documents\GitHub\Delirius-Food\.venv
 
 if not defined PROMPT set PROMPT=$P$G
 
