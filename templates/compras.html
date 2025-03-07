@@ -151,6 +151,7 @@
         document.getElementById('frete').innerText = `R$ ${frete.toFixed(2).replace('.', ',')}`;
         const total = subtotal + frete - desconto; // Aplica o desconto ao total
         document.getElementById('total').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        
     }
 
     // Adiciona eventos aos botões de aumentar e diminuir quantidade
@@ -181,6 +182,9 @@
                 updateSummary(); // Atualiza o resumo após a alteração
             }
         });
+
+
+        
 
         // Remover o item
         item.querySelector('.remove').addEventListener('click', () => {
