@@ -98,31 +98,48 @@
        
         <aside class="summary">
             <h3>Resumo da compra</h3>
-            <p>Sub-total <span>R$ 154,00</span></p>
+            <p>Sub-total <span id="subtotal">R$ 154,00</span></p>
             <p>Frete <span>Gratuito</span></p>
             <p>Adicionar cupom de desconto</p>
-            <p class="total-price">Total <span>R$ 154,00</span></p>
+            <p class="total-price">Total <span id="total">R$ 154,00</span></p>
             <a href="finalizacaoPedido.html">
-                <button class="checkout">
-                    FINALIZAR COMPRA 
-                </button>
+                <button class="checkout">FINALIZAR COMPRA</button>
+            </a>
         </aside>
     </main>
-
+    
     <script>
+        // Função para atualizar o resumo da compra
+        function updateSummary() {
+            let subtotal = 0;
+    
+            // Percorre todos os itens do carrinho
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const price = parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.'));
+                const quantity = parseInt(item.querySelector('.qty').innerText);
+                subtotal += price * quantity; // Calcula o subtotal
+            });
+    
+            // Atualiza o subtotal e total no resumo
+            document.getElementById('subtotal').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            document.getElementById('total').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`; // Aqui você pode adicionar lógica para descontos, se necessário
+        }
+    
+        // Adiciona eventos aos botões de aumentar e diminuir quantidade
         document.querySelectorAll('.cart-item').forEach(item => {
-            const price = parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.'));
             const quantityElement = item.querySelector('.qty');
             const totalElement = item.querySelector('.total');
-           
+            const price = parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.'));
+    
             // Aumentar a quantidade
             item.querySelector('.increase').addEventListener('click', () => {
                 let qty = parseInt(quantityElement.innerText);
                 qty++;
                 quantityElement.innerText = qty;
                 totalElement.innerText = 'R$ ' + (price * qty).toFixed(2).replace('.', ',');
+                updateSummary(); // Atualiza o resumo após a alteração
             });
-           
+    
             // Diminuir a quantidade
             item.querySelector('.decrease').addEventListener('click', () => {
                 let qty = parseInt(quantityElement.innerText);
@@ -130,21 +147,23 @@
                     qty--;
                     quantityElement.innerText = qty;
                     totalElement.innerText = 'R$ ' + (price * qty).toFixed(2).replace('.', ',');
-
                     if (qty === 0) {
-                    item.remove();
-                }
-
+                        item.remove(); // Remove o item se a quantidade for 0
+                    }
+                    updateSummary(); // Atualiza o resumo após a alteração
                 }
             });
-           
+    
             // Remover o item
             item.querySelector('.remove').addEventListener('click', () => {
                 item.remove();
+                updateSummary(); // Atualiza o resumo após a remoção
             });
         });
+    
+        // Atualiza o resumo ao carregar a página
+        updateSummary();
     </script>
-
     <footer>
       <img src="/img/favicon.png" alt="Delirius Food">
       <div class="links">
