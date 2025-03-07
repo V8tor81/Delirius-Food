@@ -41,196 +41,141 @@
 
     <main>
         <h2>Meu Carrinho</h2>
-        <div class="cart">
-            <!-- Cabeçalho dos rótulos -->
-            <div class="cart-header">
-                <span class="header-produto">Produto</span>
-                <span class="header-preco">Preço</span>
-                <span class="header-quantidade">Quantidade</span>
-                <span class="header-total">Total</span>
-            </div>
-
-            <div class="cart-item">
-                <img src="/img/pizza3.jpg" alt="pizza">
-                <div class="details">
-                    <p>Pizza Italiana</p>
-                </div>
-                <p class="price">R$ 45,00</p>
-                <div class="quantity">
-                    <button class="decrease">-</button>
-                    <span class="qty">2</span>
-                    <button class="increase">+</button>
-                </div>
-                <p class="total">R$ 90,00</p>
-                <button class="remove">&times;</button>
-            </div>
-
-            <div class="cart-item">
-                <img src="/img/hamburguer.jpg" alt="hamburguer">
-                <div class="details">
-                    <p>Hambúrguer Artesanal</p>
-                </div>
-                <p class="price">R$ 20,00</p>
-                <div class="quantity">
-                    <button class="decrease">-</button>
-                    <span class="qty">2</span>
-                    <button class="increase">+</button>
-                </div>
-                <p class="total">R$ 40,00</p>
-                <button class="remove">&times;</button>
-            </div>
-
-            <div class="cart-item">
-                <img src="/img/batata.jpg" alt="batata">
-                <div class="details">
-                    <p>Batata Frita</p>
-                </div>
-                <p class="price">R$ 12,00</p>
-                <div class="quantity">
-                    <button class="decrease">-</button>
-                    <span class="qty">2</span>
-                    <button class="increase">+</button>
-                </div>
-                <p class="total">R$ 24,00</p>
-                <button class="remove">&times;</button>
-            </div>
-        </div>
-       
+        <div id="cart-items"></div>
         <aside class="summary">
             <h3>Resumo da compra</h3>
-            <p>Sub-total <span id="subtotal">R$ 154,00</span></p>
-            <p>Frete <span>R$ 35,00</span></p>
-            <p>Adicionar cupom de desconto</p>
-            <p class="total-price">Total <span id="total">R$ 154,00</span></p>
+            <p>Sub-total: <span id="subtotal">R$ 0,00</span></p>
+            <p>Frete: <span id="frete">R$ 00</span></p>
+            <p>Adicionar cupom de desconto <span id="desconto-Mensagem"></span></p>
+            <p>Total: <span id="total">R$ 0,00</span></p>
             <a href="finalizacaoPedido.html">
                 <button class="checkout">FINALIZAR COMPRA</button>
             </a>
         </aside>
+        
     </main>
-    
-    <aside class="summary">
-            <h3>Resumo da compra</h3>
-            <p>Sub-total <span id="subtotal">R$ 154,00</span></p>
-            <p>Frete <span id="frete">R$ 35,00</span></p>
-            <p>Adicionar cupom de desconto</p>
-            <p class="total-price">Total <span id="total">R$ 154,00</span></p>
-            <a href="finalizacaoPedido.html">
-                <button class="checkout">FINALIZAR COMPRA</button>
-            </a>
-        </aside>
-    </main>
-    
+
     <script>
-         // Função para atualizar o resumo da compra
-    function updateSummary() {
-        let subtotal = 0;
-        let frete = 0;
-        let desconto = 0;
+        // Função para atualizar o resumo da compra
+        function updateSummary() {
+            let subtotal = 0;
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const price = parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.'));
+                const quantity = parseInt(item.querySelector('.qty').innerText);
+                subtotal += price * quantity; // Calcula o subtotal
+            });
+          
+            // Atualiza o subtotal
+            document.getElementById('subtotal').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            
+            // Condição para o frete
+            const frete = subtotal < 20 && subtotal !== 0 ? 35 : 0; // Frete de R$ 35 se subtotal for menor que R$ 20 e diferente de 0
+            document.getElementById('frete').innerText = `R$ ${frete.toFixed(2).replace('.', ',')}`;
 
-        // Percorre todos os itens do carrinho
-        document.querySelectorAll('.cart-item').forEach(item => {
-            const price = parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.'));
-            const quantity = parseInt(item.querySelector('.qty').innerText);
-            subtotal += price * quantity; // Calcula o subtotal
-        });
+            // Total
+            const total = subtotal + frete; // Total
+            document.getElementById('total').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+        
 
-        // Verifica as condições para o frete e o desconto
-        if (subtotal === 0) {
-            frete = 0; // Frete é 0 se subtotal é 0
-            desconto = 0; // Nenhum desconto se o subtotal for 0
-        } else if (subtotal >= 20) {
-            desconto = 35; // Desconto de 35 reais se subtotal é maior ou igual a 20
-            frete = 35; // Frete padrão de 35 reais
-        } else {
-            frete = 35; // Frete de 35 reais
-            desconto = 0; // Sem desconto se o subtotal for menor que 20
+
+        // Função para obter os parâmetros da URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const produto = params.get('produto');
+            const preco = params.get('preco');
+            return { produto, preco };
         }
 
-        // Atualiza o subtotal, frete e total no resumo
-        document.getElementById('subtotal').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
-        document.getElementById('frete').innerText = `R$ ${frete.toFixed(2).replace('.', ',')}`;
-        const total = subtotal + frete - desconto; // Aplica o desconto ao total
-        document.getElementById('total').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
-        
-    }
+        document.addEventListener('DOMContentLoaded', () => {
+            const { produto, preco } = getQueryParams();
+            if (produto && preco) {
+                const cartItemsDiv = document.getElementById('cart-items');
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <p> ${produto}</p>
+                    <span class="price">R$ ${parseFloat(preco).toFixed(2).replace('.', ',')}</span>
+                    <div class="quantity">
+                        <button class="decrease">-</button>
+                        <span class="qty">2</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <p class="total">Total: <span class="total-price">R$ ${parseFloat(preco).toFixed(2).replace('.', ',')}</span></p>
+                    <button class="remove">&times;</button>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
 
-    // Adiciona eventos aos botões de aumentar e diminuir quantidade
-    document.querySelectorAll('.cart-item').forEach(item => {
-        const quantityElement = item.querySelector('.qty');
-        const totalElement = item.querySelector('.total');
-        const price = parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.'));
+                // Atualiza o resumo da compra
+                updateSummary();
 
-        // Aumentar a quantidade
-        item.querySelector('.increase').addEventListener('click', () => {
-            let qty = parseInt(quantityElement.innerText);
-            qty++;
-            quantityElement.innerText = qty;
-            totalElement.innerText = 'R$ ' + (price * qty).toFixed(2).replace('.', ',');
-            updateSummary(); // Atualiza o resumo após a alteração
-        });
+                // Adiciona eventos para aumentar e diminuir a quantidade
+                itemDiv.querySelector('.increase').addEventListener('click', () => {
+                    let qty = parseInt(itemDiv.querySelector('.qty').innerText);
+                    qty++;
+                    itemDiv.querySelector('.qty').innerText = qty;
+                    const totalPrice = parseFloat(preco) * qty;
+                    itemDiv.querySelector('.total-price').innerText = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+                    updateSummary(); // Atualiza o resumo após a alteração
+                });
 
-        // Diminuir a quantidade
-        item.querySelector('.decrease').addEventListener('click', () => {
-            let qty = parseInt(quantityElement.innerText);
-            if (qty > 0) {
-                qty--;
-                quantityElement.innerText = qty;
-                totalElement.innerText = 'R$ ' + (price * qty).toFixed(2).replace('.', ',');
-                if (qty === 0) {
-                    item.remove(); // Remove o item se a quantidade for 0
-                }
-                updateSummary(); // Atualiza o resumo após a alteração
+                itemDiv.querySelector('.decrease').addEventListener('click', () => {
+                    let qty = parseInt(itemDiv.querySelector('.qty').innerText);
+                    if (qty > 1) {
+                        qty--;
+                        itemDiv.querySelector('.qty').innerText = qty;
+                        const totalPrice = parseFloat(preco) * qty;
+                        itemDiv.querySelector('.total-price').innerText = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+                        updateSummary(); // Atualiza o resumo após a alteração
+                    }
+                });
+
+                // Remover o item
+                itemDiv.querySelector('.remove').addEventListener('click', () => {
+                    itemDiv.remove();
+                    updateSummary(); // Atualiza o resumo após a remoção
+                });
             }
         });
 
-
-        
-
-        // Remover o item
-        item.querySelector('.remove').addEventListener('click', () => {
-            item.remove();
-            updateSummary(); // Atualiza o resumo após a remoção
-        });
-    });
-
-    // Atualiza o resumo ao carregar a página
+        // Atualiza o resumo ao carregar a página
         updateSummary();
-
     </script>
+
     <footer>
-      <img src="/img/favicon.png" alt="Delirius Food">
-      <div class="links">
-          <ul>
-              <li>
-                  <a href="#ofertas">
-                      <i class="fa-solid fa-face-grin-stars"></i>
-                      <span>Ofertas</span>
-                  </a>
-              </li>
-              <li>
-                  <a href="#menu">
-                      <i class="fa-solid fa-bowl-food"></i>
-                      <span>Menu</span>
-                  </a>
-              </li>
-              <li>
-                  <a href="#restaurante">
-                      <i class="fa-solid fa-shop"></i>
-                      <span>Restaurantes</span>
-                  </a>
-              </li>
-          </ul>
-      </div>
-      <div id="texto2">
-          <h3>Encontre Aqui</h3>
-          <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
-      </div>
-  </footer>
- 
-  <div class="bottom-footer">
-      <span id="copyright">
-          &copy 2025 Delirius Food - Todos os direitos reservados.
-      </span>
-  </div>
+        <img src="/img/favicon.png" alt="Delirius Food">
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="#ofertas">
+                        <i class="fa-solid fa-face-grin-stars"></i>
+                        <span>Ofertas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#restaurante">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>Restaurantes</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="texto2">
+            <h3>Encontre Aqui</h3>
+            <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
+        </div>
+    </footer>
+
+    <div class="bottom-footer">
+        <span id="copyright">
+            &copy 2025 Delirius Food - Todos os direitos reservados.
+        </span>
+    </div>
 </body>
 </html>
