@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/compras copy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <title>Carrinho de Compras</title>
+</head>
+<body>
+    <header>
+        <a href="home.html"><img id="logo" src="/img/logo.png" alt="Delirius Food"></a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#ofertas">
+                        <i class="fa-solid fa-face-grin-stars"></i>
+                        <span>Ofertas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#restaurante">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>Restaurantes</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <a href="login.html"><button>Entrar</button></a>
+    </header>
+
+    <main>
+        <h2>Meu Carrinho</h2>
+        <div class="cart">
+            <!-- Cabeçalho dos rótulos -->
+            <div class="cart-header">
+                <span class="header-produto">Produto</span>
+                <span class="header-preco">Preço</span>
+                <span class="header-quantidade">Quantidade</span>
+                <span class="header-total">Total</span>
+            </div>
+            {% for produto in carrinho %}
+            <div class="cart-item">
+                <img src="{{produto[3]}}" alt="pizza">
+                <div class="details">
+                    <p>id:{{produto[0]}}</p> 
+                    <p>nome:{{produto[1]}}</p> <!-- Nome do Produto -->
+                </div>
+                <p class="price" data-price="{{produto[2]}}">R$ {{produto[2]}}</p> <!-- Preço do Produto -->
+                <div class="quantity">
+                    <button class="decrease">-</button>
+                    <span class="qty">0</span> <!-- Quantidade inicial -->
+                    <button class="increase">+</button>
+                </div>
+                <p class="total" data-total="{{produto[2]}}">R$ {{produto[2]}}</p> <!-- Valor total do produto -->
+                <button class="remove">&times;</button>
+            </div>
+            {% endfor %}
+            
+            <!-- Finalização da Compra - Formulário -->
+            <h3>Finalizar Pedido</h3>
+            <form id="form-finalizacao">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" placeholder="Digite seu CPF" required>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" placeholder="Digite seu endereço" required>
+
+                <label for="metodo-pagamento">Método de Pagamento:</label>
+                <select id="metodo-pagamento" required>
+                    <option value="pix">PIX</option>
+                    <option value="dinheiro">Dinheiro na mão</option>
+                    <option value="credito">Crédito/Débito</option>
+                </select>
+            </form>
+
+            <aside class="summary">
+                <h3>Resumo da compra</h3>
+                <p>Frete <span>Gratuito</span></p>
+                <p class="total-price">Total <span>R$ 0,00</span></p>
+                <button class="checkout">FINALIZAR COMPRA</button>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        function updateTotalPrice() {
+            let total = 0;
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const totalPriceElement = item.querySelector('.total');
+                const totalPrice = parseFloat(totalPriceElement.innerText.replace('R$ ', '').replace(',', '.'));
+                total += totalPrice;
+            });
+
+            // Atualizar o valor total no resumo
+            document.querySelector('.total-price span').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+        }
+
+        // Função para capturar os dados do carrinho
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const priceElement = item.querySelector('.price');
+            const price = parseFloat(priceElement.getAttribute('data-price').replace('R$ ', '').replace(',', '.'));
+
+            const quantityElement = item.querySelector('.qty');
+            const totalElement = item.querySelector('.total');
+            
+            // Aumentar a quantidade
+            item.querySelector('.increase').addEventListener('click', () => {
+                let qty = parseInt(quantityElement.innerText);
+                qty++;
+                quantityElement.innerText = qty;
+                const totalPrice = (price * qty).toFixed(2).replace('.', ',');
+                totalElement.innerText = 'R$ ' + totalPrice;
+
+                // Atualiza o valor total no resumo
+                updateTotalPrice();
+            });
+            
+            // Diminuir a quantidade
+            item.querySelector('.decrease').addEventListener('click', () => {
+                let qty = parseInt(quantityElement.innerText);
+                if (qty > 1) {  // Não permite quantidade 0 ou negativa
+                    qty--;
+                    quantityElement.innerText = qty;
+                    const totalPrice = (price * qty).toFixed(2).replace('.', ',');
+                    totalElement.innerText = 'R$ ' + totalPrice;
+
+                    // Atualiza o valor total no resumo
+                    updateTotalPrice();
+                }
+            });
+            
+            // Remover o item
+            item.querySelector('.remove').addEventListener('click', () => {
+                item.remove();
+                updateTotalPrice();
+            });
+        });
+
+        // Finalizar compra e enviar os dados para o servidor
+        document.querySelector('.checkout').addEventListener('click', function() {
+            const carrinhoItems = [];
+            const cpf = document.querySelector('#cpf').value;
+            const endereco = document.querySelector('#endereco').value;
+            const metodoPagamento = document.querySelector('#metodo-pagamento').value;
+
+            // Verifica se os campos obrigatórios estão preenchidos
+            if (!cpf || !endereco || !metodoPagamento) {
+                alert("Por favor, preencha todos os campos!");
+                return;
+            }
+
+            // Coletando os dados do carrinho
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const produto = {
+                    nome: item.querySelector('.details p').innerText,   // Nome do Produto
+                    preco: parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.')),  // Preço do Produto
+                    quantidade: parseInt(item.querySelector('.qty').innerText), // Quantidade
+                    total: parseFloat(item.querySelector('.total').innerText.replace('R$ ', '').replace(',', '.')) // Total do Produto (preço * quantidade)
+                };
+
+                carrinhoItems.push(produto);
+            });
+
+            // Enviar dados para o servidor usando fetch (POST)
+            fetch('/finalizar_compra', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    cpf: cpf,
+                    endereco: endereco,
+                    metodoPagamento: metodoPagamento,
+                    produtos: carrinhoItems
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Compra Finalizada com Sucesso!');
+                window.location.href = '/compras';  // Redireciona para a página de compras
+            })
+            .catch(error => console.log('Erro ao enviar dados:', error));
+        });
+
+    </script>
+
+    <footer>
+      <img src="/img/favicon.png" alt="Delirius Food">
+      <div class="links">
+          <ul>
+              <li>
+                  <a href="#ofertas">
+                      <i class="fa-solid fa-face-grin-stars"></i>
+                      <span>Ofertas</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#menu">
+                      <i class="fa-solid fa-bowl-food"></i>
+                      <span>Menu</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#restaurante">
+                      <i class="fa-solid fa-shop"></i>
+                      <span>Restaurantes</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div id="texto2">
+          <h3>Encontre Aqui</h3>
+          <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
+      </div>
+  </footer>
+ 
+  <div class="bottom-footer">
+      <span id="copyright">
+          &copy 2025 Delirius Food - Todos os direitos reservados.
+      </span>
+  </div>
+</body>
+</html>

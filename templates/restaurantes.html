@@ -76,6 +76,7 @@
                 <option value="japonesa">Salgados</option>
             </select>
         </div>
+        
         <div class="restaurant-list">
             <!-- Restaurante 1: Hambúrguer -->
             <div class="restaurant">
@@ -86,12 +87,11 @@
                     <p>Tempo: 40 min | Nota: 4.4</p>
                     <p><strong>R$ 16,25</strong></p>
                     <!-- Botão de Carrinho -->
-                    <a href="compras.html?produto=Hambúrguer&preco=16.25">
+                    <form action="/adicionando_carrinho" method="get">
                         <button class="carrinho-btn">
                             <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
                         </button>
-                    </a>
-                    
+                    </form>                    
                 </div>
             </div>
         
@@ -104,11 +104,11 @@
                     <p>Tempo: 20 min | Nota: 3.0</p>
                     <p><strong>R$ 10,99</strong></p>
                     <!-- Botão de Carrinho -->
-                    <a href="compras.html?produto=Pastel de Carne&preco=10.99">
+                    <form action="/adicionando_carrinho" method="get">
                         <button class="carrinho-btn">
                             <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
                         </button>
-                    </a>
+                    </form>
                 </div>
             </div>
         
