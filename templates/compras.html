@@ -11,163 +11,169 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <title>Carrinho de Compras</title>
 </head>
+<style>
+    form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    select {
+        cursor: pointer;
+    }
+
+    .checkout {
+        background: #28a745;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .checkout:hover {
+        background: #218838;
+    }
+</style>
+
 <body>
     <header>
-        <a href="home.html"><img id="logo" src="/img/logo.png" alt="Delirius Food"></a>
-
-        <a id="icon" href="restaurantes.html">
-            <i class="fa-solid fa-shop"></i>
-        </a>
-
+        <a href="home.html"><img id="logo" src="static/img/logo.png" alt="Delirius Food"></a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#ofertas">
+                        <i class="fa-solid fa-face-grin-stars"></i>
+                        <span>Ofertas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#restaurante">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>Restaurantes</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
         <a href="login.html"><button>Entrar</button></a>
     </header>
 
     <main>
         <h2>Meu Carrinho</h2>
-        <div id="cart-items"></div>
-        <aside class="summary">
-            <h3>Resumo da compra</h3>
-            <p>Sub-total: <span id="subtotal">R$ 0,00</span></p>
-            <p>Frete: <span id="frete">R$ 00</span></p>
-            <p>Frete grátis apartir de 20 reias</p>
-            <p>Adicionar cupom de desconto <span id="desconto-Mensagem"></span></p>
-            <p>Total: <span id="total">R$ 0,00</span></p>
-            <a href="finalizacaoPedido.html">
+        <div class="cart">
+            <!-- Cabeçalho dos rótulos -->
+            <div class="cart-header">
+                <span class="header-produto">Produto</span>
+                <span class="header-preco">Preço</span>
+                <span class="header-total">Apagar</span>
+
+            </div>
+            {% for produto in carrinho %}
+            <div class="cart-item">
+                <img src="{{produto[3]}}" alt="pizza">
+                <div class="details">
+                    <p>id:{{produto[0]}}</p> 
+                    <p>nome:{{produto[1]}}</p> <!-- Nome do Produto -->
+                </div>
+                <p class="price" data-price="{{produto[2]}}">R$ {{produto[2]}}</p> <!-- Preço do Produto -->
+                <form action="/voltar" method="get">
+                    <button class="remove">&times;</button>
+                </form>
+            </div>
+            
+            <!-- Finalização da Compra - Formulário -->
+            <h3>Finalizar Pedido</h3>
+            <form action="/finalizacao_pedido" method="post">
+                <input type="hidden" name="id_produto" value="{{ produto[0] }}">
+                <input type="hidden" name="preco" value="{{ produto[2] }}">
+
+
+
+                <label for="quantidade">Informe a quantidade:</label>
+                <input type="number" id="quantidade" placeholder="Digite a quantidade" name="quantidade" required>
+
+                <label for="id_pedido">Id pedido:</label>
+                <input type="text" id="id_pedido" placeholder="Digite o id do pedido" name="id_pedido" required>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" placeholder="Digite seu endereço" name="endereco" required>
+
+                <label for="metodo-pagamento">Método de Pagamento:</label>
+                <select id="metodo-pagamento" name="metodo-pagamento" required>
+                    <option value="pix" >PIX</option>
+                    <option value="dinheiro">Dinheiro na mão</option>
+                    <option value="credito">Crédito/Débito</option>
+                </select>
+
                 <button class="checkout">FINALIZAR COMPRA</button>
-            </a>
-        </aside>
+            </form>
+            {% endfor %}
+
+        </div>
     </main>
 
-    <!--<script>
-        // Função para atualizar o resumo da compra
-        function updateSummary() {
-            let subtotal = 0;
-            document.querySelectorAll('.cart-item').forEach(item => {
-                const price = parseFloat(item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.'));
-                const quantity = parseInt(item.querySelector('.qty').innerText);
-                subtotal += price * quantity; // Calcula o subtotal
-            });
-         
-            // Atualiza o subtotal
-            document.getElementById('subtotal').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
-           
-            // Condição para o frete
-            const frete = subtotal < 20 && subtotal !== 0 ? 35 : 0; // Frete de R$ 35 se subtotal for menor que R$ 20 e diferente de 0
-            document.getElementById('frete').innerText = `R$ ${frete.toFixed(2).replace('.', ',')}`;
-
-            // Total
-            const total = subtotal + frete; // Total
-            document.getElementById('total').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
-        }
-
-        // Função para obter os parâmetros da URL
-        function getQueryParams() {
-            const params = new URLSearchParams(window.location.search);
-            const produto = params.get('produto');
-            const preco = params.get('preco');
-            return { produto, preco };
-        }
-
-        // Função para salvar o carrinho no localStorage
-        function saveCart() {
-            const cartItems = [];
-            document.querySelectorAll('.cart-item').forEach(item => {
-                const produto = item.querySelector('p').innerText;
-                const price = item.querySelector('.price').innerText.replace('R$ ', '').replace(',', '.');
-                const qty = item.querySelector('.qty').innerText;
-                cartItems.push({ produto, price, qty });
-            });
-            localStorage.setItem('cart', JSON.stringify(cartItems));
-        }
-
-        // Função para carregar o carrinho do localStorage
-        function loadCart() {
-            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            cartItems.forEach(item => {
-                addItemToCart(item.produto, item.price, item.qty);
-            });
-        }
-
-        // Função para adicionar item ao carrinho
-        function addItemToCart(produto, preco, qty = 1) {
-            const cartItemsDiv = document.getElementById('cart-items');
-            const itemDiv = document.createElement('div');
-            itemDiv.classList.add('cart-item');
-            itemDiv.innerHTML = `
-                <p>${produto}</p>
-                <span class="price">R$ ${parseFloat(preco).toFixed(2).replace('.', ',')}</span>
-                <div class="quantity">
-                    <button class="decrease">-</button>
-                    <span class="qty">${qty}</span>
-                    <button class="increase">+</button>
-                </div>
-                <p class="total">Total: <span class="total-price">R$ ${parseFloat(preco * qty).toFixed(2).replace('.', ',')}</span></p>
-                <button class="remove">&times;</button>
-            `;
-            cartItemsDiv.appendChild(itemDiv);
-
-            // Atualiza o resumo da compra
-            updateSummary();
-
-            // Adiciona eventos para aumentar e diminuir a quantidade
-            itemDiv.querySelector('.increase').addEventListener('click', () => {
-                let qty = parseInt(itemDiv.querySelector('.qty').innerText);
-                qty++;
-                itemDiv.querySelector('.qty').innerText = qty;
-                const totalPrice = parseFloat(preco) * qty;
-                itemDiv.querySelector('.total-price').innerText = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
-                updateSummary(); // Atualiza o resumo após a alteração
-                saveCart(); // Salva o carrinho
-            });
-
-            itemDiv.querySelector('.decrease').addEventListener('click', () => {
-                let qty = parseInt(itemDiv.querySelector('.qty').innerText);
-                if (qty > 1) {
-                    qty--;
-                    itemDiv.querySelector('.qty').innerText = qty;
-                    const totalPrice = parseFloat(preco) * qty;
-                    itemDiv.querySelector('.total-price').innerText = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
-                    updateSummary(); // Atualiza o resumo após a alteração
-                    saveCart(); // Salva o carrinho
-                }
-            });
-
-            // Remover o item
-            itemDiv.querySelector('.remove').addEventListener('click', () => {
-                itemDiv.remove();
-                updateSummary(); // Atualiza o resumo após a remoção
-                saveCart(); // Salva o carrinho
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadCart(); // Carrega o carrinho ao iniciar
-
-            const { produto, preco } = getQueryParams();
-            if (produto && preco) {
-                addItemToCart(produto, preco); // Adiciona o item ao carrinho
-            }
-        });
-
-        // Atualiza o resumo ao carregar a página
-        updateSummary();
-    </script>-->
-
-    <script src="/java/compras.js"></script>
+   
 
     <footer>
-        <img src="/img/favicon.png" alt="Delirius Food">
-        
-        <div id="texto2">
-            <h3>Encontre Aqui</h3>
-            <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
-        </div>
-    </footer>
-
-    <div class="bottom-footer">
-        <span id="copyright">
-            &copy 2025 Delirius Food - Todos os direitos reservados.
-        </span>
-    </div>
+      <img src="static/img/favicon.png" alt="Delirius Food">
+      <div class="links">
+          <ul>
+              <li>
+                  <a href="#ofertas">
+                      <i class="fa-solid fa-face-grin-stars"></i>
+                      <span>Ofertas</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#menu">
+                      <i class="fa-solid fa-bowl-food"></i>
+                      <span>Menu</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#restaurante">
+                      <i class="fa-solid fa-shop"></i>
+                      <span>Restaurantes</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div id="texto2">
+          <h3>Encontre Aqui</h3>
+          <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
+      </div>
+  </footer>
+ 
+  <div class="bottom-footer">
+      <span id="copyright">
+          &copy 2025 Delirius Food - Todos os direitos reservados.
+      </span>
+  </div>
 </body>
 </html>

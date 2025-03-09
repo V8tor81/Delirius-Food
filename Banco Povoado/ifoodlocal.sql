@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `ifoodlocal` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `ifoodlocal`;
--- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: ifoodlocal
 -- ------------------------------------------------------
--- Server version	8.0.41
+-- Server version	8.0.39
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -158,7 +156,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (1,'Hambúrguer',NULL,16.25,'00:40:00','/img/hamburguer1.webp',1,2,1),(2,'Pastel de Carne',NULL,10.99,'00:20:00','/img/pastel2.jpg',1,1,2),(3,'Pizza de Queijo',NULL,24.99,'00:53:00','/img/pizza2.jpg',1,3,3),(4,'Batatinha Frita',NULL,15.59,'00:25:00','/img/batatinha1.avif',1,1,4),(5,'Trufa de Maracujá',NULL,3.00,'00:10:00','/img/trufas.jpg',1,5,6),(6,'Sorvete',NULL,19.99,'00:15:00','/img/sorvete1.webp',1,5,7),(7,'Bolo de Chocolate',NULL,24.99,'00:53:00','/img/bolo1.avif',1,5,8),(8,'Tapioca de Carne Seca com Queijo',NULL,12.00,'00:15:00','/img/tapioca.png',1,1,9);
+INSERT INTO `produto` VALUES (1,'Hambúrguer',NULL,16.25,'00:40:00','static/img/hambuguer1.webp',1,2,1),(2,'Pastel de Carne',NULL,10.99,'00:20:00','static/img/pastel2.jpg',1,1,2),(3,'Pizza de Queijo',NULL,24.99,'00:53:00','static/img/pizza2.jpg',1,3,3),(4,'Batatinha Frita',NULL,15.59,'00:25:00','static/img/batatinha1.avif',1,1,4),(5,'Trufa de Maracujá',NULL,3.00,'00:10:00','static/img/trufas.jpg',1,5,6),(6,'Sorvete',NULL,19.99,'00:15:00','static/img/sorvete1.webp',1,5,7),(7,'Bolo de Chocolate',NULL,24.99,'00:53:00','static/img/bolo1.avif',1,5,8),(8,'Tapioca de Carne Seca com Queijo',NULL,12.00,'00:15:00','static/img/tapioca.png',1,1,9);
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,14 +279,6 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'josefina.lima123@gmail.com','123456','Josefina Lima','84994065967','cli',NULL,NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'ifoodlocal'
---
-
---
--- Dumping routines for database 'ifoodlocal'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -299,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-08 13:36:34
+-- Dump completed on 2025-03-09 19:01:53

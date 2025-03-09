@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="static/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/static/restaurantes.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -13,14 +13,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     
     <title>Lista de Restaurantes</title>
+
 </head>
+<style>
+    .carrinho-btn {
+        background: linear-gradient(90deg, #C4541D 0%, #D96629 100%);
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .carrinho-btn i {
+        margin-right: 8px;
+    }
+
+    .carrinho-btn:hover {
+        background: linear-gradient(90deg, #D96629 0%, #C4541D 100%);
+        transform: scale(1.05);
+    }
+
+    .carrinho-btn:focus {
+        outline: none;
+    }
+</style>
 <body>
     <header>
-        <a href="home.html"><img id="logo" src="/img/logo.png" alt="Delirius Food"></a>
-
-        <a id="carro" href="compras.html">
-            <i class="fa-solid fa-cart-plus"></i>
-        </a>
+        <a href="home.html"><img id="logo" src="static/img/logo.png" alt="Delirius Food"></a>
+        
+        <nav>
+            <ul>
+                <li>
+                    <a href="#ofertas">
+                        <i class="fa-solid fa-face-grin-stars"></i>
+                        <span>Ofertas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#restaurante">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>Restaurantes</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
         <a href="login.html"><button>Entrar</button></a>
     </header>
@@ -46,137 +93,73 @@
             </select>
             <select>
                 <option value="">Tipo de comida</option>
-                <option value="brasileira">Hambúrguer</option>
+                <option value="brasileira">Hamburguer</option>
                 <option value="pizza">Pizza</option>
+                <option value="japonesa">Japonesa</option>
                 <option value="japonesa">Sorvete</option>
-                <option value="japonesa">Batatinha</option>
+                <option value="japonesa">batatinha</option>
                 <option value="japonesa">Pastel</option>
-                <option value="japonesa">Bolos</option>
+                <option value="japonesa">bolos</option>
                 <option value="japonesa">Doces</option>
                 <option value="japonesa">Salgados</option>
             </select>
         </div>
         
         <div class="restaurant-list">
-            
+            <!-- Restaurante 1: Hambúrguer -->
+          {% for produto in restaurante %}
             <div class="restaurant">
-                <img src="/img/hambuguer1.webp" width="200" height="200" alt="Comida">
+                <img src="{{produto[3]}}" width="200" height="200" alt="Comida">
                 <div class="info">
-                    <h3>Hambúrguer</h3>
-                    <h4>Hambúrguer do Paulista</h4>
-                    <p>Tempo: 40 min | Nota: 4.4</p>
-                    <p><strong>R$ 16,25</strong></p>
+                    <h3>{{produto[1]}}</h3>
+                    <p>Tempo de Preparo: {{produto[5]}} min</p>
+                    <p><strong>R$ {{produto[2]}}</strong></p>
                     <!-- Botão de Carrinho -->
-                    <form action="/adicionando_carrinho" method="get">
+                    <form action="/adicionando_carrinho" method="post">
+                        <input type="hidden" name="produto_id" value="{{ produto[0] }}">
+                        <input type="hidden" name="produto_nome" value="{{ produto[1] }}">
+                        <input type="hidden" name="produto_preco" value="{{ produto[2] }}">
+                        <input type="hidden" name="produto_imagem" value="{{ produto[3] }}">
                         <button class="carrinho-btn">
                             <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
                         </button>
                     </form>                    
                 </div>
             </div>
+          {% endfor %}
         
           
-            <div class="restaurant">
-                <img src="/img/pastel2.jpg" width="200" height="200" alt="Comida">
-                <div class="info">
-                    <h3>Pastel de Carne</h3>
-                    <h4>Pastel da Anny</h4>
-                    <p>Tempo: 20 min | Nota: 3.0</p>
-                    <p><strong>R$ 10,99</strong></p>
-                    <!-- Botão de Carrinho -->
-                    <form action="/adicionando_carrinho" method="get">
-                        <button class="carrinho-btn">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </form>
-                </div>
-            </div>
-        
-          
-            <div class="restaurant">
-                <img src="/img/pizza2.jpg" width="200" height="200" alt="Comida">
-                <div class="info">
-                    <h3>Pizza de Queijo</h3>
-                    <h4>Pizzaria do João</h4>
-                    <p>Tempo: 53 min | Nota: 4.8</p>
-                    <p><strong>R$ 24,99</strong></p>
-                   
-                    <a href="compras.html?produto=Pizza de Queijo&preco=24.99">
-                        <button class="carrinho-btn">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </a>
-                </div>
-            </div>
-        
-           
-            <div class="restaurant">
-                <img src="/img/batatinha1.avif" width="200" height="200" alt="Comida">
-                <div class="info">
-                    <h3>Batatinha Frita</h3>
-                    <h4>Besteirinhas do Zé</h4>
-                    <p>Tempo: 25 min | Nota: 4.4</p>
-                    <p><strong>R$ 15,59</strong></p>
-                    
-                    <a href="compras.html?produto=Batatinha Frita&preco=15.59">
-                        <button class="carrinho-btn">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </a>
-                </div>
-            </div>
             
-            <div class="restaurant">
-                <img src="/img/trufas.jpg" width="200" height="200" alt="Comida">
-                <div class="info">
-                    <h3>Trufa de Maracujá</h3>
-                    <h4>Trufas da Kali</h4>
-                    <p>Tempo: 10 min | Nota: 4.8</p>
-                    <p><strong>R$ 3,00</strong></p>
-                    
-                    <a href="compras.html?produto=Trufa de Maracujá&preco=3.00">
-                        <button class="carrinho-btn">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </a>
-                </div>
-            </div>
-        
-            <div class="restaurant">
-                <img src="/img/sorvete1.webp" width="200" height="200" alt="Comida">
-                <div class="info">
-                    <h3>Sorvete</h3>
-                    <h4>Gelado da M</h4>
-                    <p>Tempo: 15 min | Nota: 3.0</p>
-                    <p><strong>R$ 19,99</strong></p>
-                    
-                    <a href="compras.html?produto=Sorvete&preco=19.99">
-                        <button class="carrinho-btn">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </a>
-                </div>
-            </div>
-        
-            <div class="restaurant">
-                <img src="/img/bolo1.avif" width="200" height="200" alt="Comida">
-                <div class="info">
-                    <h3>Bolo de Chocolate</h3>
-                    <h4>Bolos Já</h4>
-                    <p>Tempo: 53 min | Nota: 5.0</p>
-                    <p><strong>R$ 24,99</strong></p>
-                    <a href="compras.html?produto=Bolo de Chocolate&preco=24.99">
-                        <button class="carrinho-btn">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
-                        </button>
-                    </a>
-                </div>
-            </div>
+        </div>
+            <!-- Repita o mesmo padrão para os outros itens -->
         </div>
     </div>
 
     <footer>
-        <img src="/img/favicon.png" alt="Delirius Food">
+        <img src="static/img/favicon.png" alt="Delirius Food">
+        
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="#ofertas">
+                        <i class="fa-solid fa-face-grin-stars"></i>
+                        <span>Ofertas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#restaurante">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>Restaurantes</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         
         <div id="texto2">
             <h3>Encontre Aqui</h3>
@@ -185,9 +168,12 @@
     </footer>
     
     <div class="bottom-footer">
-        <span id="copyright">
-            &copy 2025 Delirius Food - Todos os direitos reservados.
-        </span>
+            <span id="copyright">
+                &copy 2025 Delirius Food -
+            </span>
     </div>
 </body>
-</html>
+</html> 
+
+
+
