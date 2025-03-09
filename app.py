@@ -7,6 +7,9 @@ from crud import read
 from datetime import datetime
 from mysql.connector import (connection)
 from crud import conexaoBD
+from flask import Flask, request, redirect, url_for, render_template
+import os
+from werkzeug.utils import secure_filename
 
 import json
 
@@ -146,3 +149,61 @@ def finalizar_compra():
     
     return 'deu certo'
 
+#para a url das imagens salvas no banco aparecerem quando o produto for adicionado ao carrinho
+
+# Diretório onde as imagens serão salvas
+UPLOAD_FOLDER = '/img'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+# Função para verificar se o arquivo tem extensão permitida
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+with open('database-professor/ifood.conf', 'r') as dadosbd: 
+            databd = json.load(dadosbd)
+
+cnx = connection.MySQLConnection(user=databd['user'],
+                                    password=databd['pass'],
+                                    host=databd['host'],
+                                    database=databd['database'])
+
+# Rota para upload da imagem
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        return "Nenhum arquivo enviado", 400
+
+    file = request.files['file']
+    
+    if file.filename == '':
+        return "Arquivo sem nome", 400
+    
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+
+        # Guardando o caminho no banco de dados
+        cursor = cnx.cursor()
+        sql = "INSERT INTO produto (nome, preco, imagem, idCategoria, idRestaurante) VALUES (%s, %s, %s, %s, %s)"
+        valores = ("Nome do Produto", 25.00, f"img/{filename}", 1, 1)
+        cursor.execute(sql, valores)
+        cnx.commit()
+        cursor.close()
+
+        return "Imagem enviada com sucesso!"
+
+    return "Arquivo não permitido", 400
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+@app.route('/produtos')
+def listar_produtos():
+    cursor = db.cursor()
+    cursor.execute("SELECT id, nome, preco, imagem FROM produto")
+    produtos = cursor.fetchall()
+    cursor.close()
+    
+    return render_template('produtos.html', produtos=produtos)

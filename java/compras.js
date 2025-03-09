@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/static/compras.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <title>Carrinho de Compras</title>
-</head>
-<body>
-    <header>
-        <a href="home.html"><img id="logo" src="/img/logo.png" alt="Delirius Food"></a>
 
-        <a id="icon" href="restaurantes.html">
-            <i class="fa-solid fa-shop"></i>
-        </a>
-
-        <a href="login.html"><button>Entrar</button></a>
-    </header>
-
-    <main>
-        <h2>Meu Carrinho</h2>
-        <div id="cart-items"></div>
-        <aside class="summary">
-            <h3>Resumo da compra</h3>
-            <p>Sub-total: <span id="subtotal">R$ 0,00</span></p>
-            <p>Frete: <span id="frete">R$ 00</span></p>
-            <p>Frete grátis apartir de 20 reias</p>
-            <p>Adicionar cupom de desconto <span id="desconto-Mensagem"></span></p>
-            <p>Total: <span id="total">R$ 0,00</span></p>
-            <a href="finalizacaoPedido.html">
-                <button class="checkout">FINALIZAR COMPRA</button>
-            </a>
-        </aside>
-    </main>
-
-    <!--<script>
         // Função para atualizar o resumo da compra
         function updateSummary() {
             let subtotal = 0;
@@ -151,23 +111,3 @@
 
         // Atualiza o resumo ao carregar a página
         updateSummary();
-    </script>-->
-
-    <script src="/java/compras.js"></script>
-
-    <footer>
-        <img src="/img/favicon.png" alt="Delirius Food">
-        
-        <div id="texto2">
-            <h3>Encontre Aqui</h3>
-            <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
-        </div>
-    </footer>
-
-    <div class="bottom-footer">
-        <span id="copyright">
-            &copy 2025 Delirius Food - Todos os direitos reservados.
-        </span>
-    </div>
-</body>
-</html>

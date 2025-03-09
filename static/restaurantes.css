@@ -27,24 +27,13 @@ header #logo {
     width: 150px;
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 40px;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li a {
+#carro{
     color: #f5f5f5;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
+    margin-left: 78%;
+    font-size: 20px;
 }
 
-header nav ul li a:hover {
+#carro:hover {
     color: #ea5a00;
 }
 
@@ -147,7 +136,7 @@ header button:hover {
     gap: 8px;
     transition: background-color 0.3s ease;
     text-decoration: none;
-    margin-left: 40px;
+    margin-left: 25px;
 }
 
 .carrinho-btn:hover {
@@ -170,22 +159,6 @@ footer {
 
 footer img {
     width: 80px;
-}
-
-.links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.links ul li a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: #f5f5f5;
-    font-size: 16px;
 }
 
 #texto2 {
@@ -231,22 +204,15 @@ footer img {
         width: 100px;
     }
 
-    header nav ul {
-        gap: 15px;
-    }
-
-    header nav ul li a {
-        font-size: 14px;
-    }
-
-    header nav ul li a span {
-        display: none;
+    #carro{
+        margin-left: 80px;
     }
 
     header button {
         padding: 8px 16px;
         font-size: 14px;
         display: block;
+        margin-left: 10px;
     }
 
     .container {
@@ -271,6 +237,10 @@ footer img {
         grid-template-columns: 1fr;
     }
 
+    .carrinho-btn{
+        margin-left: 50px;
+    }
+
     footer {
         flex-direction: column;
         align-items: center;
@@ -280,10 +250,6 @@ footer img {
 
     footer img {
         width: 60px;
-    }
-
-    .links ul {
-        align-items: center;
     }
 
     #texto2 {
