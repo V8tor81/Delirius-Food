@@ -372,6 +372,21 @@ footer img{
     }
 }
 
+@media screen and (max-width: 1366px){
+    .hero{
+        padding-top: 80px;
+    }
+
+    .hero img{
+        width: 35%;
+    }
+
+    .search-icon{
+        right: 17%;
+        top: 68.5%;
+    }
+}
+
 /*VERSÃO MOBILE*/
 @media (max-width: 320px) and (max-height: 780px){  
     *{
@@ -497,12 +512,16 @@ footer img{
     }
 
     #dia{
+        padding-right: 30px;
+    }
+
+    #preco{
         padding-right: 20px;
     }
 
     #new{
         padding-top: 10px;
-        padding-left: 70px;
+        padding-left: 50px;
     }
 
     #menu .cards, #restaurante .cards {
@@ -530,15 +549,29 @@ footer img{
     }
 
     #restaurante .card {
-        width: 100%;
-        padding: 20px;
+        width: 200px;
+        min-height: 220px; 
+        padding: 20px 48%;
         border-radius: 10px;
         background-color: beige;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between; 
     }
-
+    
+    
     #restaurante img {
-        width: 90%;
+        width: 150px;
+        margin-bottom: 5px; 
+    }
+    
+    #restaurante .card #t1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; 
     }
 
     #restaurante {
