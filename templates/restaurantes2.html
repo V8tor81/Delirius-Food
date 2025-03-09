@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/static/restaurantes.css">
+    <link rel="stylesheet" href="/static/restaurantes copy.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
@@ -13,10 +13,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     
     <title>Lista de Restaurantes</title>
+
 </head>
+<style>
+    .carrinho-btn {
+        background: linear-gradient(90deg, #C4541D 0%, #D96629 100%);
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .carrinho-btn i {
+        margin-right: 8px;
+    }
+
+    .carrinho-btn:hover {
+        background: linear-gradient(90deg, #D96629 0%, #C4541D 100%);
+        transform: scale(1.05);
+    }
+
+    .carrinho-btn:focus {
+        outline: none;
+    }
+</style>
 <body>
     <header>
-        <a href="home.html"><img id="logo" src="/img/logo.png" alt="Delirius Food"></a>
+        <a href="home.html"><img id="logo" src="static/img/logo.png" alt="Delirius Food"></a>
         
         <nav>
             <ul>
@@ -84,9 +112,8 @@
                 <img src="{{produto[3]}}" width="200" height="200" alt="Comida">
                 <div class="info">
                     <h3>{{produto[1]}}</h3>
-                    <h4>Hambúrguer do Paulista</h4>
-                    <p>Tempo: 40 min | Nota: 4.4</p>
-                    <p><strong>{{produto[2]}}</strong></p>
+                    <p>Tempo de Preparo: {{produto[5]}} min</p>
+                    <p><strong>R$ {{produto[2]}}</strong></p>
                     <!-- Botão de Carrinho -->
                     <form action="/adicionando_carrinho" method="post">
                         <input type="hidden" name="produto_id" value="{{ produto[0] }}">
@@ -109,7 +136,7 @@
     </div>
 
     <footer>
-        <img src="/img/favicon.png" alt="Delirius Food">
+        <img src="static/img/favicon.png" alt="Delirius Food">
         
         <div class="links">
             <ul>
