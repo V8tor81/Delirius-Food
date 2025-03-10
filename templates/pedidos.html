@@ -117,7 +117,7 @@
         </section>
     </main>
     <footer>
-        <img src="/img/favicon.png" alt="Delirius Food">
+        <img src="/static/img/favicon.png" alt="Delirius Food">
        
         <div class="links">
             <ul>
@@ -128,8 +128,10 @@
                     </a>
                 </li>
                 <li>
-                    <i class="fa-solid fa-file"></i>
-                    <a href="{{ url_for('relatorio') }}"> Relatórios</a>
+                    <a href="{{ url_for('relatorio') }}">
+                        <i class="fa-solid fa-file"></i>
+                        <span>Relatório</span>
+                    </a>
                 </li>
                 <li>
                     <a href="{{ url_for('visaoDono') }}">
