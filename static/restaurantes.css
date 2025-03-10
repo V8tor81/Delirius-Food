@@ -1,43 +1,39 @@
-*{
+* {
     padding: 0;
-    margin: 0; 
-    font-family: 'Quicksand';
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
 }
 
-body{
-    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%); 
+body {
+    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%);
     max-width: 100%;
     max-height: 100%;
 }
 
-header{
+header {
+    width: 100%;
     background: linear-gradient(180deg, #C54F1E 0%, #D45A1A 100%);
-    display: flex;
-    justify-content: space-between;
     padding: 20px 40px;
     position: fixed;
     top: 0;
-    z-index: 1;
-    width: 95%;
-}
-
-#logo{
-    width: 100%;
-}
-
-header nav ul{
-    list-style: none;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
-    gap: 50px;
-    padding-top: 20px;
-    padding-left: 350px;
-    padding-right: 310px;
+    align-items: center;
 }
 
-a:hover i,
+header #logo {
+    width: 150px;
+}
 
-a:hover span{
+#carro{
+    color: #f5f5f5;
+    margin-left: 78%;
+    font-size: 20px;
+}
+
+#carro:hover {
     color: #ea5a00;
 }
 
@@ -75,12 +71,14 @@ header button:hover{
     display: flex;
     justify-content: space-between;
     margin-bottom: 70px;
+    align-items: center;
 }
 
 .filters select {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    width: 30%;
 }
 
 .restaurant-list {
@@ -102,6 +100,7 @@ header button:hover{
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     width: 200px; /* Define a largura */
+    height: 400px;
     aspect-ratio: 1 / 1; /* Mantém proporção quadrada */
     text-align: center; /* Centraliza o texto */
 }
@@ -112,7 +111,7 @@ header button:hover{
 
 .restaurant img {
     width: 100%; /* Faz a imagem ocupar toda a largura do card */
-    border-radius: 8px; /* Borda arredondada na imagem */
+    border-radius: 8px; 
     object-fit: cover; /* Garante que a imagem preencha corretamente */
 }
 .info{
@@ -130,6 +129,32 @@ header button:hover{
 
 .info p{
     color: #1f1f1f;
+}
+
+.carrinho-btn {
+    background: linear-gradient(90deg, #C4541D 0%, #D96629 100%);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.carrinho-btn i {
+    margin-right: 8px;
+}
+
+.carrinho-btn:hover {
+    background: linear-gradient(90deg, #D96629 0%, #C4541D 100%);
+    transform: scale(1.05);
+}
+
+.carrinho-btn:focus {
+    outline: none;
 }
 
 h2{
@@ -151,21 +176,6 @@ footer #logo{
     width: 15%;
 }
 
-.links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; 
-}
-
-.links ul li a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: #f5f5f5;
-}
-
 #texto2 {
     display: flex;
     flex-direction: column;
@@ -180,7 +190,7 @@ footer #logo{
 
 #search2 {
     padding: 8px;
-    width: 178px;
+    width: 195px;
     border-radius: 5px;
     border: 1px solid #888;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -200,4 +210,77 @@ footer #logo{
     justify-content: center;
     font-size: 14px;
     color: #f5f5f5;
+}
+
+/* VERSÃO MOBILE */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    header #logo {
+        width: 100px;
+    }
+
+    #carro{
+        margin-left: 80px;
+    }
+
+    header button {
+        padding: 8px 16px;
+        font-size: 14px;
+        display: block;
+        margin-left: 10px; 
+    }
+
+    .container {
+        margin-top: 50px;
+        padding: 10px;
+    }
+
+    .container h2 {
+        font-size: 30px;
+    }
+
+    .filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filters select {
+        width: 100%;
+    }
+
+    .restaurant{
+        width: 250px;
+    }
+    
+    .restaurant-list {
+        grid-template-columns: 1fr;
+        margin-left: 25px;
+        margin-bottom: 50px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    footer img {
+        width: 60px;
+    }
+
+    #texto2 {
+        width: 100%;
+    }
+
+    #search2 {
+        width: 90%; 
+    }
+
+    #copyright{
+        font-size: 10px;
+    }
 }

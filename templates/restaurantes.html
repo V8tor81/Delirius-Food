@@ -15,61 +15,16 @@
     <title>Lista de Restaurantes</title>
 
 </head>
-<style>
-    .carrinho-btn {
-        background: linear-gradient(90deg, #C4541D 0%, #D96629 100%);
-        color: white;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        display: inline-flex;
-        align-items: center;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
-    }
 
-    .carrinho-btn i {
-        margin-right: 8px;
-    }
-
-    .carrinho-btn:hover {
-        background: linear-gradient(90deg, #D96629 0%, #C4541D 100%);
-        transform: scale(1.05);
-    }
-
-    .carrinho-btn:focus {
-        outline: none;
-    }
-</style>
 <body>
     <header>
-        <a href="home.html"><img id="logo" src="static/img/logo.png" alt="Delirius Food"></a>
+        <a href="{{ url_for('home') }}"><img id="logo" src="static/img/logo.png" alt="Delirius Food"></a>
         
-        <nav>
-            <ul>
-                <li>
-                    <a href="#ofertas">
-                        <i class="fa-solid fa-face-grin-stars"></i>
-                        <span>Ofertas</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#menu">
-                        <i class="fa-solid fa-bowl-food"></i>
-                        <span>Menu</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#restaurante">
-                        <i class="fa-solid fa-shop"></i>
-                        <span>Restaurantes</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <a id="carro" href="{{ url_for('compras') }}">
+            <i class="fa-solid fa-cart-plus"></i>
+        </a>
 
-        <a href="login.html"><button>Entrar</button></a>
+        <a href="{{ url_for('login') }}"><button>Entrar</button></a>
     </header>
 
     <div class="container">
@@ -93,13 +48,12 @@
             </select>
             <select>
                 <option value="">Tipo de comida</option>
-                <option value="brasileira">Hamburguer</option>
+                <option value="brasileira">Hambúrguer</option>
                 <option value="pizza">Pizza</option>
-                <option value="japonesa">Japonesa</option>
                 <option value="japonesa">Sorvete</option>
-                <option value="japonesa">batatinha</option>
+                <option value="japonesa">Batatinha</option>
                 <option value="japonesa">Pastel</option>
-                <option value="japonesa">bolos</option>
+                <option value="japonesa">Bolos</option>
                 <option value="japonesa">Doces</option>
                 <option value="japonesa">Salgados</option>
             </select>
@@ -127,40 +81,13 @@
                 </div>
             </div>
           {% endfor %}
-        
-          
-            
         </div>
-            <!-- Repita o mesmo padrão para os outros itens -->
-        </div>
+
     </div>
 
     <footer>
         <img src="static/img/favicon.png" alt="Delirius Food">
-        
-        <div class="links">
-            <ul>
-                <li>
-                    <a href="#ofertas">
-                        <i class="fa-solid fa-face-grin-stars"></i>
-                        <span>Ofertas</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#menu">
-                        <i class="fa-solid fa-bowl-food"></i>
-                        <span>Menu</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#restaurante">
-                        <i class="fa-solid fa-shop"></i>
-                        <span>Restaurantes</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
+                
         <div id="texto2">
             <h3>Encontre Aqui</h3>
             <input id="search2" type="text" placeholder="Ache produtos e restaurantes">
@@ -168,9 +95,9 @@
     </footer>
     
     <div class="bottom-footer">
-            <span id="copyright">
-                &copy 2025 Delirius Food -
-            </span>
+        <span id="copyright">
+            &copy 2025 Delirius Food - Todos os direitos reservados.
+        </span>
     </div>
 </body>
 </html> 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/static/visaoDono.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -18,14 +18,14 @@
     <header>
         <div class="interface">
             <section class="logo">
-                <a href="home.html"><img src="/img/logo.png" alt="logo"></a>
+                <a href="{{ url_for('home') }}"><img src="/static/img/logo.png" alt="logo"></a>
             </section>   
             <section class="menu-desktop">
                 <nav>
                     <ul>
-                        <li class="menu"><i class="fa-solid fa-tag"></i><a href="cadastroDono.html"> Cadastrar</a></li>
-                        <li class="menu"><i class="fa-solid fa-basket-shopping"></i><a href="pedidos.html"> Gestão</a></li>
-                        <li class="menu"><i class="fa-solid fa-file"></i><a href="relatorio.html"> Relatório</a></li>
+                        <li class="menu"><i class="fa-solid fa-tag"></i><a href="{{ url_for('cadastroDono') }}"> Cadastrar</a></li>
+                        <li class="menu"><i class="fa-solid fa-basket-shopping"></i><a href="{{ url_for('pedidos') }}"> Gestão</a></li>
+                        <li class="menu"><i class="fa-solid fa-file"></i><a href="{{ url_for('relatorio') }}"> Relatório</a></li>
                     </ul>
                 </nav>
             </section>  
@@ -35,45 +35,45 @@
     <section class="hero">
         <div class="cards">
             <div class="card">
-                <img src="/img/imgProduto.png" alt="cadastro" style="border:5px">
+                <img src="/static/img/imgProduto.png" alt="cadastro" style="border:5px">
                 <div class="container">
-                    <a href="cadastroDono.html"><button type="button">Novo alimento</button></a>
+                    <a href="{{ url_for('cadastroDono') }}"><button type="button">Novo alimento</button></a>
                 </div>
             </div>
             <div class="card">
-                <img src="/img/imageGestões.png" alt="Pedidos">
+                <img src="/static/img/imageGestões.png" alt="Pedidos">
                 <div class="container">
-                    <a href="pedidos.html"><button type="button">Gerênciar alimentos</button></a>
+                    <a href="{{ url_for('pedidos') }}"><button type="button">Gerênciar alimentos</button></a>
                 </div>
             </div>
             <div class="card">
-                <img src="/img/imageRelatório.png" alt="Relatório">
+                <img src="/static/img/imageRelatório.png" alt="Relatório">
                 <div class="container">
-                    <a href="relatorio.html"><button type="button">Relatórios das vendas</button></a>
+                    <a href="{{ url_for('relatorio') }}"><button type="button">Relatórios das vendas</button></a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <img src="/img/favicon.png" alt="Delirius Food">
+        <img src="/static/img/favicon.png" alt="Delirius Food">
         
         <div class="links">
             <ul>
                 <li>
-                    <a href="cadastroDono.html">
+                    <a href="{{ url_for('cadastroDono') }}">
                         <i class="fa-solid fa-tag"></i>
                         <span>Cadastrar</span>
                     </a>
                 </li>
                 <li>
-                    <a href="pedidos.html">
+                    <a href="{{ url_for('pedidos') }}">
                         <i class="fa-solid fa-basket-shopping"></i>
                         <span>Gestão</span>
                     </a>
                 </li>
                 <li>
-                    <a href="relatorio.html">
+                    <a href="{{ url_for('relatorio') }}">
                         <i class="fa-solid fa-file"></i>
                         <span>Relatório</span>
                     </a>

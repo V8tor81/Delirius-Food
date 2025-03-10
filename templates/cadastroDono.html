@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/static/cadastroDono.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,14 +18,14 @@
     <header>
         <div class="interface">
             <section class="logo">
-                <a href="home.html"><img id="logo" src="/img/logo.png" alt="Delirius Food"></a>
+                <a href="{{ url_for('home') }}"><img id="logo" src="/static/img/logo.png" alt="Delirius Food"></a>
             </section>   
             <section class="menu-desktop">
                 <nav>
                     <ul>
-                        <li class="menu"><i class="fa-solid fa-tag"></i><a href="cadastrar.html"> Cadastrar</a></li>
-                        <li class="menu"><i class="fa-solid fa-basket-shopping"></i><a href="pedidos.html"> Gestão</a></li>
-                        <li class="menu"><i class="fa-solid fa-file"></i><a href="relatorio.html"> Relatório</a></li>
+                        <li class="menu"><i class="fa-solid fa-tag"></i><a href="{{ url_for('cadastroDono') }}"> Cadastrar</a></li>
+                        <li class="menu"><i class="fa-solid fa-basket-shopping"></i><a href="{{ url_for('pedido') }}"> Gestão</a></li>
+                        <li class="menu"><i class="fa-solid fa-file"></i><a href="{{ url_for('relatorio') }}"> Relatório</a></li>
                     </ul>
                 </nav>
             </section>  
@@ -71,7 +71,7 @@
     <section class="editar">
         <div class="disponiveis">
             <div class="comidas">
-                <img src="/img/brig.png" width="200" height="150" alt="Comida">
+                <img src="/static/img/brig.png" width="200" height="150" alt="Comida">
                 <div class="brig">
                     <h3>Brigadeiro de Ninho</h3>
                     <h4>Cantina</h4>
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="comidas">
-                <img src="/img/brig2.png" width="200" height="150" alt="Comida">
+                <img src="/static/img/brig2.png" width="200" height="150" alt="Comida">
                 <div class="brig">
                     <h3>Caixinha de Brigadeiros</h3>
                     <h4>Cantina</h4>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="comidas">
-                <img src="/img/brig3.png" width="200" height="150" alt="Comida">
+                <img src="/static/img/brig3.png" width="200" height="150" alt="Comida">
                 <div class="brig">
                     <h3>Ninho com Nutella</h3>
                     <h4>Cantina</h4>
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="comidas">
-                <img src="/img/brig5.png" width="200" height="150" alt="Comida">
+                <img src="/static/img/brig5.png" width="200" height="150" alt="Comida">
                 <div class="brig">
                     <h3>Beijinho</h3>
                     <h4>Cantina</h4>
@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="comidas">
-                <img src="/img/brig4.png" width="200" height="150" alt="Comida">
+                <img src="/static/img/brig4.png" width="200" height="150" alt="Comida">
                 <div class="brig">
                     <h3>Doce de Uva</h3>
                     <h4>Cantina</h4>
@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="comidas">
-                <img src="/img/brig6.png" width="200" height="150" alt="Comida">
+                <img src="/static/img/brig6.png" width="200" height="150" alt="Comida">
                 <div class="brig">
                     <h3>Brigadeiro</h3>
                     <h4>Cantina</h4>
@@ -127,24 +127,24 @@
         </div>
     </section>
     <footer>
-        <img src="/img/favicon.png" alt="Delirius Food">
+        <img src="/static/img/favicon.png" alt="Delirius Food">
         
         <div class="links">
             <ul>
                 <li>
-                    <a href="cadastroDono.html">
+                    <a href="{{ url_for('cadastroDono') }}">
                         <i class="fa-solid fa-tag"></i>
                         <span>Cadastrar</span>
                     </a>
                 </li>
                 <li>
-                    <a href="pedidos.html">
+                    <a href="{{ url_for('pedidos') }}">
                         <i class="fa-solid fa-basket-shopping"></i>
                         <span>Gestão</span>
                     </a>
                 </li>
                 <li>
-                    <a href="relatorio.html">
+                    <a href="{{ url_for('relatorio') }}">
                         <i class="fa-solid fa-file"></i>
                         <span>Relatório</span>
                     </a>

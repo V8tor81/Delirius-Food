@@ -23,18 +23,14 @@ header {
     width: 100%;
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-    padding-top: 20px;
-    padding-left: 350px;
-    padding-right: 310px;
+#icon{
+    color: #f5f5f5;
+    margin-top: 12px;
+    margin-left: 75%;
+    font-size: 20px;
 }
 
-a:hover i,
-a:hover span {
+#icon:hover{
     color: #ea5a00;
 }
 
@@ -182,7 +178,6 @@ h2 {
     color: #cc0000;
 }
 
-
 .summary {
     border: 1px solid #eee;
     padding: 20px;
@@ -230,6 +225,49 @@ h2 {
     background-color: #218838;
 }
 
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+select {
+    cursor: pointer;
+}
+
+.checkout {
+    background: #28a745;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.checkout:hover {
+    background: #218838;
+}
+
 footer {
     display: flex;
     align-items: center;
@@ -241,21 +279,6 @@ footer {
 
 footer img{
     width: 5%;
-}
-
-.links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.links ul li a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: #f5f5f5;
 }
 
 #texto2 {
@@ -296,10 +319,6 @@ footer img{
 
 /*VERSÃO LAPTOP*/
 @media (max-width: 1440px) {
-    header nav ul {
-        gap: 30px;
-    }
-
     header button {
         font-size: 16px;
         padding: 14px;
@@ -340,15 +359,9 @@ footer img{
     #logo{
         width: 140px; 
     }
-    
-    header nav ul{
-        list-style: none;
-        padding: 0; 
-        gap: 15px;  
-    }
-    
-    header nav ul li a span{
-        display: none;    
+
+    #icon{
+        margin-left: 50px;
     }
 
     header button{
@@ -361,7 +374,7 @@ footer img{
     main {
         margin-top: 70px;
         margin-bottom: 50px;
-        width: 100%;
+        width: 80%;
     }
 
     h2 {
@@ -459,56 +472,26 @@ footer img{
         font-size: 16px;
     }
 
-    footer{
-        width: 100%;
-        display: flex;
+    footer {
         flex-direction: column;
         align-items: center;
-        padding: 20px;
-        background-color: #C4541D;
-        gap: 10px;
-    }
-    
-    footer img{
-        width: 25%;
-    }
-    
-    .links ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
         text-align: center;
+        gap: 15px;
     }
-    
-    .links ul li a {
-        color: #f5f5f5;
-        font-size: 12px;
+
+    footer img {
+        width: 60px;
     }
-    
-    #texto2 h3{
-        font-size: 16px;
-        color: #f5f5f5;
-        text-align: center;
+
+    #texto2 {
+        width: 100%;
     }
-    
+
     #search2 {
-        padding: 5px;
-        width: 90%;
-        border-radius: 5px;
-        border: 1px solid #888;
+        width: 90%; 
     }
-    
-    .bottom-footer{
-        background-color: #C4541D;
-        padding: 10px;
-        text-align: center;
-        font-size: 12px;
-        border-top: 1px solid #2422224d;
-    }
-    
+
     #copyright{
         font-size: 10px;
-        color: #f5f5f5;
     }
 }

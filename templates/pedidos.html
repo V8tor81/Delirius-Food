@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/static/pedido.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -18,13 +18,23 @@
     <header>
         <div class="interface">
             <section class="logo">
-                <a href="home.html"><img src="/img/logo.png" alt="logo"></a>
+                <a href="{{ url_for('home') }}"><img src="/static/img/logo.png" alt="logo"></a>
             </section>  
             <section class="menu-desktop">
                 <nav>
                     <ul>
-                        <li class="menu"><i class="fa-solid fa-tag"></i><a href="cadastroDono.html"> Cadastrar</a></li>
-                        <li class="menu"><i class="fa-solid fa-file"></i><a href="relatorio.html"> Relatórios</a></li>  <li class="menu"><i class="fa-solid fa-bars"></i><a href="visaoDono.html"> Menu</a></li>
+                        <li class="menu">
+                            <i class="fa-solid fa-tag"></i>
+                            <a href="{{ url_for('cadastroDono') }}"> Cadastrar</a>
+                        </li>
+                        <li class="menu">
+                            <i class="fa-solid fa-file"></i>
+                            <a href="{{ url_for('relatorio') }}"> Relatórios</a>
+                        </li>
+                        <li class="menu">
+                            <i class="fa-solid fa-bars"></i>
+                            <a href="{{ url_for('visaoDono') }}"> Menu</a>
+                        </li>
                     </ul>
                 </nav>
             </section>  
@@ -112,21 +122,19 @@
         <div class="links">
             <ul>
                 <li>
-                    <a href="visaoDono.html">
-                        <i class="fa-solid fa-bars"></i>
-                        <span>Menu</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="cadastroDono.html">
+                    <a href="{{ url_for('cadastroDono') }}">
                         <i class="fa-solid fa-tag"></i>
                         <span>Cadastrar</span>
                     </a>
                 </li>
                 <li>
-                    <a href="pedidos.html">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                        <span>Gestão</span>
+                    <i class="fa-solid fa-file"></i>
+                    <a href="{{ url_for('relatorio') }}"> Relatórios</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('visaoDono') }}">
+                        <i class="fa-solid fa-bars"></i>
+                        <span>Menu</span>
                     </a>
                 </li>
             </ul>

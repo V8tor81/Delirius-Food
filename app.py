@@ -66,12 +66,6 @@ def carrinho():
        
         return 'erro'
 
-  
-
-   
-
-  
-
 
 @app.route('/finalizacao_pedido', methods=['POST'])
 def adicionandoPedidoBD():
@@ -104,11 +98,43 @@ def adicionandoPedidoBD():
         
         else:
             return render_template('resposta.html', valor=total)
-        
-
-  
-@app.route('/voltar', methods=['GET'])
-def retornar():
-    return render_template('compras.html')
 
 
+@app.route('/home')
+def home():
+    return render_template('home.html')  #página inicial
+
+@app.route('/login')
+def login():
+    return render_template('login.html')  #página login
+
+@app.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html') #página cadastro
+
+@app.route('/restaurantes')
+def restaurantes():
+    return render_template('restaurantes.html')  #página restaurantes
+
+@app.route('/compras')
+def compras():
+    return render_template('compras.html')  #página compras
+
+@app.route('/cadastroDono')
+def cadastroDono():
+    return render_template('cadastroDono.html') 
+
+@app.route('/pedidos')
+def pedidos():
+    return render_template('pedidos.html')
+
+@app.route('/relatorio')
+def relatorio():
+    return render_template('relatorio.html')
+
+@app.route('/visaoDono')
+def visaoDono():
+    return render_template('visaoDono.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
